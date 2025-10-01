@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526a19523066d7d4aae836ae7d4a1d04, type: 3}
+  m_Name: Shuriken
+  m_EditorClassIdentifier: 
+  name: Shuriken
+  description: Swift and strong.
+  frame: {fileID: 21300000, guid: 8b2b2ae13002ca349ad48585e41bb045, type: 3}
+  image: {fileID: 3358000071023749860, guid: 187a30a3021f326458953bbfb30846fe, type: 3}
+  augmentType: 0
+  NewWeapon: {fileID: 6396075262486740225, guid: 704faccfde39d294b89556f836166351,
+    type: 3}

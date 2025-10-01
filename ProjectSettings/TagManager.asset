@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Enemy
+  - BouncingObject
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Enemy
+  - Obstacle
+  - Projectile
+  - Pickup
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Grass
+    uniqueID: 2425651459
+    locked: 0
+  - name: Stone
+    uniqueID: 4250941897
+    locked: 0
+  - name: Wall
+    uniqueID: 4189426099
+    locked: 0
+  - name: Pickups
+    uniqueID: 724965483
+    locked: 0
+  - name: Enemy
+    uniqueID: 2357354399
+    locked: 0
+  - name: Player
+    uniqueID: 73106553
+    locked: 0
+  - name: Obstacle
+    uniqueID: 4289326463
+    locked: 0
+  m_RenderingLayers:
+  - Default

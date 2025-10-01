@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff87d2f1e1c5a2439a9e6c2bac8b4e7, type: 3}
+  m_Name: Bloodmoon
+  m_EditorClassIdentifier: 
+  name: Bloodmoon
+  description: Crescent blades cut through enemies!
+  frame: {fileID: 21300000, guid: 8af071b0680d1d744b9bdb7d005c538a, type: 3}
+  image: {fileID: -4520286420665800320, guid: 2453422dc8594e148b92674541208d63, type: 3}
+  augmentType: 1
+  SourceWeaponID: 3
+  UpgradedWeapon: {fileID: 3442482019999103755, guid: ba1546e8563e3124e8f9abcac1fb4c60,
+    type: 3}
