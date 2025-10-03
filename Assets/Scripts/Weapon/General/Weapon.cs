@@ -9,13 +9,14 @@ public class Weapon : MonoBehaviour
     float coolDownLeft; 
     private void Start()
     {
-        coolDownLeft = info.attackCooldown;
+        coolDownLeft = 0f;
     }
     private void Update()
     {
         coolDownLeft -= Time.deltaTime;
         if(coolDownLeft <= 0)
         {
+            Debug.Log("Attack Called");
             behaviour.Attack(transform);
             coolDownLeft = info.attackCooldown;
         }

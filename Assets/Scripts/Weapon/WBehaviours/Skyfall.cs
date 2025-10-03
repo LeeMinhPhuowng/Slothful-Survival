@@ -25,8 +25,8 @@ public class Skyfall : AWeaponBehaviour
             Collider2D target = enemies[Random.Range(0, enemies.Length)];
             if(target != null)
             {
-                var shootingStar = ObjectPool.instance.SpawnFromPool(ObjectType.ShootingStar, target.gameObject.transform.position + spawnPos);
-                shootingStar.GetComponent<FallingStar>().OnActivate(info.attackDamage, info.attackCooldown);
+                var shootingStar = ObjectPool.instance.SpawnFromPool(ObjectType.ShootingStar, target.gameObject.transform.position + spawnPos, Quaternion.identity, (o) => { o.GetComponent<Projectile>().Init(info.attackDamage, info.attackCooldown); });
+                shootingStar.GetComponent<Projectile>().MoveDownward();
                 yield return new WaitForSeconds(timeBetween);
             }
         }

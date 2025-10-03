@@ -38,10 +38,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         expComponent.AmountModifier();
     }
 
+
     //TakeDamage Effect
     private void TriggerTakeDamageVFX()
     {
-        Debug.Log("OK");
         if (vfxRoutine != null)
         {
             StopCoroutine(vfxRoutine);

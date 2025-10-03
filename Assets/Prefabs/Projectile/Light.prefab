@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1498939980194084069, guid: 5d61600a60e9030419091cdc0e5e266c,
+        type: 3}
+      propertyPath: type
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 2244441201951583107, guid: 5d61600a60e9030419091cdc0e5e266c,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -98,39 +103,5 @@ PrefabInstance:
     - {fileID: -1689762313760082939, guid: 5d61600a60e9030419091cdc0e5e266c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4300512972853675893, guid: 5d61600a60e9030419091cdc0e5e266c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -5396592690490062990}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d61600a60e9030419091cdc0e5e266c, type: 3}
---- !u!1 &7806929588903977557 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4300512972853675893, guid: 5d61600a60e9030419091cdc0e5e266c,
-    type: 3}
-  m_PrefabInstance: {fileID: 6339296801714906400}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &-5396592690490062990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7806929588903977557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e1c562e2d77f374baa8f80bfd089c04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  lifetime: 0
-  type: 11
-  moveSpeed: 10
-  rb: {fileID: 8229477725438217912}
-  rotateSpeed: 300
---- !u!50 &8229477725438217912 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 2723919906511825816, guid: 5d61600a60e9030419091cdc0e5e266c,
-    type: 3}
-  m_PrefabInstance: {fileID: 6339296801714906400}
-  m_PrefabAsset: {fileID: 0}

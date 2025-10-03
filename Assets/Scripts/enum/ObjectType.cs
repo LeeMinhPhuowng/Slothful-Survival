@@ -13,5 +13,7 @@ public enum ObjectType
     Laser,
     ShootingStar,
     Dark,
-    Light
+    Light,
+    SlashVFX,
+
 }

@@ -10,6 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2244441201951583107, guid: 5d61600a60e9030419091cdc0e5e266c,
         type: 3}
+      propertyPath: m_Time
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2244441201951583107, guid: 5d61600a60e9030419091cdc0e5e266c,
+        type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 702cf1184d925d840b3ce58446a18c9d, type: 2}
@@ -140,6 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -1689762313760082939, guid: 5d61600a60e9030419091cdc0e5e266c, type: 3}
+    - {fileID: 1498939980194084069, guid: 5d61600a60e9030419091cdc0e5e266c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -169,7 +175,7 @@ MonoBehaviour:
   damage: 0
   lifetime: 0
   type: 8
-  moveSpeed: 15
+  moveSpeed: 20
   rb: {fileID: 1184069249342288095}
 --- !u!50 &1184069249342288095 stripped
 Rigidbody2D:

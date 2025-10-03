@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7783479194124513632}
   - component: {fileID: 386723924637261444}
   - component: {fileID: 370722470226335658}
-  - component: {fileID: 7591853244198424315}
+  - component: {fileID: 4229422508321946303}
   m_Layer: 9
   m_Name: ShootingStar
   m_TagString: Untagged
@@ -164,16 +164,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &7591853244198424315
+--- !u!114 &4229422508321946303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8707204994675441862}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7e9d30b26e2b24381dbd29e433429b, type: 3}
+  m_Script: {fileID: 11500000, guid: 35f95b988f528d742a20ca0312d84a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0

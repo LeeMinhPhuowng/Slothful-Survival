@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8163561481078391074}
   - component: {fileID: 7783479194124513632}
   - component: {fileID: 370722470226335658}
-  - component: {fileID: 5052592990957930270}
   - component: {fileID: 4165982356407584919}
+  - component: {fileID: 5052592990957930270}
   m_Layer: 9
   m_Name: LunarBlade
   m_TagString: Untagged
@@ -117,23 +117,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &5052592990957930270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8707204994675441862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ec68a0c5eefd74ca946f060988938a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  lifetime: 0
-  type: 6
-  moveSpeed: 15
-  rb: {fileID: 370722470226335658}
 --- !u!60 &4165982356407584919
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -189,3 +172,20 @@ PolygonCollider2D:
       - {x: -0.375, y: -0.5}
       - {x: -0.03125, y: -0.46875}
   m_UseDelaunayMesh: 0
+--- !u!114 &5052592990957930270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8707204994675441862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ec68a0c5eefd74ca946f060988938a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  lifetime: 0
+  type: 6
+  moveSpeed: 15
+  rb: {fileID: 370722470226335658}

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BaseSword : AWeaponBehaviour
@@ -22,11 +23,17 @@ public class BaseSword : AWeaponBehaviour
         }
         if(target != null)
         {
-            Enemy enemy = target.GetComponentInParent<Enemy>();
-            GameObject vfx = Instantiate(slashVFX, enemy.VFXPlayer.transform.position, Quaternion.Euler(0f, 180f, 0f));
-            enemy.ReceiveDamage(info.attackDamage);
-            Destroy(vfx, VFXExistTime);
+            EnemyHealth enemyHealth = target.GetComponentInParent<EnemyHealth>();
+            GameObject vfx = ObjectPool.instance.SpawnFromPool(ObjectType.SlashVFX, target.transform.position);
+            enemyHealth.TakeDamage(info.attackDamage);
+            StartCoroutine(ReturnVFX(vfx));
         }       
+    }
+
+    IEnumerator ReturnVFX(GameObject vfx)
+    {
+        yield return new WaitForSeconds(VFXExistTime);
+        ObjectPool.instance.BackToPool(vfx, ObjectType.SlashVFX);
     }
 }
 

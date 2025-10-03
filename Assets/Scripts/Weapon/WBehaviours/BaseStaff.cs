@@ -22,9 +22,10 @@ public class BaseStaff : AWeaponBehaviour
         {
             Vector2 direction = (target.transform.position - castPosition.position).normalized;
             Quaternion quaternion = Quaternion.FromToRotation(Vector3.right, direction);
-            var projectileObj = Instantiate(projectilePrefab, castPosition.position, quaternion);
-            var projectile = projectileObj.GetComponent<Projectile>();
-            projectile.Init(info.attackDamage, info.attackCooldown);
+            ObjectType type = projectilePrefab.GetComponent<Projectile>().type;
+
+            var projectileObj = ObjectPool.instance.SpawnFromPool(type, castPosition.position, quaternion, (o) => { o.GetComponent<Projectile>().Init(info.attackDamage, info.attackCooldown); });
+            projectileObj.GetComponent<Projectile>().MoveForward();
         }
     }
 }

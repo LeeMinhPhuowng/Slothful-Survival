@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SingleTargetProjectile : Projectile
@@ -11,12 +12,12 @@ public class SingleTargetProjectile : Projectile
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (hasHit) return;
-        Enemy enemy = collision.gameObject.GetComponentInParent<Enemy>();
-        if (enemy != null)
+        EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
+        if (enemyHealth != null)
         {
-            enemy.ReceiveDamage(damage);
             hasHit = true;
-            ObjectPool.instance.BackToPool(this.gameObject, type);
+            enemyHealth.TakeDamage(damage);
+            BackToPoolImmediately();
         }
-    }
+    } 
 }

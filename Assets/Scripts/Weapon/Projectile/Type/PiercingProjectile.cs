@@ -2,20 +2,13 @@ using System.Collections;
 using UnityEngine;
 
 public class PiercingProjectile : Projectile
-{
+{    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Enemy enemy = collision.gameObject.GetComponentInParent<Enemy>();
-        if (enemy != null)
+        EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
+        if (enemyHealth != null)
         {
-            Debug.Log("OK");
-            enemy.ReceiveDamage(damage);
-            StartCoroutine(ReturnToPool());
+            enemyHealth.TakeDamage(damage);
         }
-    }
-    IEnumerator ReturnToPool()
-    {
-        yield return new WaitForSeconds(lifetime);
-        ObjectPool.instance.BackToPool(this.gameObject, type);
     }
 }

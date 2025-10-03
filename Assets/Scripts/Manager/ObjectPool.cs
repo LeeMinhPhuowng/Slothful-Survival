@@ -54,8 +54,35 @@ public class ObjectPool : MonoBehaviour
             return null;
         }
         GameObject obj = poolDictionary[type].Dequeue();
-        obj.SetActive(true);
         obj.transform.position = position;
+        obj.SetActive(true);
+        return obj;
+    }
+
+    public GameObject SpawnFromPool(ObjectType type, Vector3 position, Quaternion rotation)
+    {
+        if (!poolDictionary.ContainsKey(type))
+        {
+            return null;
+        }
+        GameObject obj = poolDictionary[type].Dequeue();
+        obj.transform.position = position;
+        obj.transform.rotation = rotation;  
+        obj.SetActive(true);    
+        return obj;
+    }
+
+    public GameObject SpawnFromPool(ObjectType type, Vector3 position, Quaternion rotation, System.Action<GameObject> onBeforeEnable = null)
+    {
+        if (!poolDictionary.ContainsKey(type))
+        {
+            return null;
+        }
+        GameObject obj = poolDictionary[type].Dequeue();
+        obj.transform.position = position;
+        obj.transform.rotation = rotation;
+        onBeforeEnable?.Invoke(obj);
+        obj.SetActive(true);
         return obj;
     }
 
@@ -63,5 +90,6 @@ public class ObjectPool : MonoBehaviour
     {
         obj.SetActive(false);
         poolDictionary[type].Enqueue(obj);
+        Debug.Log(poolDictionary[type].Count);
     }
 }

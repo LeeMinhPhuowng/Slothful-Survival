@@ -10,7 +10,7 @@ public class PlayerInfo : MonoBehaviour, IDamageable
     private int currentLevel;
     [SerializeField] float basePickupRange;
 
-    private UpdateValue healthBarValue;
+    private HealthBarValue healthBarValue;
     private SpriteRenderer spriteRenderer;
     private MaterialPropertyBlock mpb;
     private Coroutine vfxRoutine;
@@ -103,7 +103,7 @@ public class PlayerInfo : MonoBehaviour, IDamageable
         MoveSpeed = characterInfo.moveSpeed;
         PickupRange = basePickupRange;
         CurrentLevel = 0;
-        healthBarValue = HealthBarCanvas.Instance.gameObject.GetComponentInChildren<UpdateValue>();
+        healthBarValue = HealthBarCanvas.Instance.gameObject.GetComponentInChildren<HealthBarValue>();
     }
 
     //Calculate received damage

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class HomingProjectile : Projectile
@@ -12,10 +13,25 @@ public class HomingProjectile : Projectile
     }
     private void Update()
     {
-        CurlyMoveTowards(target, rotateSpeed);
+        HomeTowards(target, rotateSpeed);
     }
+
     public void SetTarget(GameObject target)
     {
         this.target = target;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (hasHit) return;
+        EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
+        if (enemyHealth != null)
+        {
+            hasHit = true;
+            enemyHealth.TakeDamage(damage);
+            BackToPoolImmediately();
+        }
+    }
+
 }
+

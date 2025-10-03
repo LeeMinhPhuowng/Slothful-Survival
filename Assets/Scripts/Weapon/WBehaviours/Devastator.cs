@@ -22,8 +22,10 @@ public class Devastator : AWeaponBehaviour
         {
             Vector2 direction = (target.transform.position - castPosition.position).normalized;
             Quaternion rotation = Quaternion.FromToRotation(Vector2.right, direction);
-            var projectile = Instantiate(projectilePrefab, castPosition.position, rotation);
-            projectile.GetComponent<Projectile>().Init(info.attackDamage, info.attackCooldown);
+            ObjectType type = projectilePrefab.GetComponent<Projectile>().type;
+
+            var projectileObj = ObjectPool.instance.SpawnFromPool(type, castPosition.position, rotation, (o) => { o.GetComponent<Projectile>().Init(info.attackDamage, info.attackCooldown); });
+            projectileObj.GetComponent<Projectile>().MoveForward();
         }      
     }
 }

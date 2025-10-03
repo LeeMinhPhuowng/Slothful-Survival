@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpdateValue : MonoBehaviour
+public class HealthBarValue : MonoBehaviour
 {
     Slider slider;
     private void Awake()

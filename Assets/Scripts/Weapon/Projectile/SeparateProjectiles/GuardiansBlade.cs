@@ -6,7 +6,7 @@ public class GuardiansBlade : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Enemy enemy = collision.gameObject.GetComponentInParent<Enemy>();
-        if(enemy != null) enemy.ReceiveDamage(info.attackDamage);
+        EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
+        if(enemyHealth != null) enemyHealth.TakeDamage(info.attackDamage);
     }
 }

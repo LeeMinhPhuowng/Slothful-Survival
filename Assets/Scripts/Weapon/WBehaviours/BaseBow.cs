@@ -23,11 +23,10 @@ public class BaseBow : AWeaponBehaviour
             Vector2 direction = (target.transform.position - castPosition.position).normalized;
             Quaternion quaternion = Quaternion.FromToRotation(Vector3.right, direction);
             ObjectType type = projectilePrefab.GetComponent<Projectile>().type;
-            var projectileObj = ObjectPool.instance.SpawnFromPool(type, castPosition.position);
-            projectileObj.transform.rotation = quaternion;
-            var projectile = projectileObj.GetComponent<Projectile>();
-            projectile.Init(info.attackDamage, info.attackCooldown);
-            projectile.MoveForward();
+
+            var projectileObj = ObjectPool.instance.SpawnFromPool(type, castPosition.position, quaternion, (o) => { 
+                o.GetComponent<Projectile>().Init(info.attackDamage, info.attackCooldown); });
+            projectileObj.GetComponent<Projectile>().MoveForward();
         }
     }
 }

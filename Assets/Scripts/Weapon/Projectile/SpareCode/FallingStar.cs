@@ -19,11 +19,11 @@ public class FallingStar : Projectile
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Enemy enemy = collision.gameObject.GetComponentInParent<Enemy>();
-        if (enemy != null)
+        EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
+        if (enemyHealth != null)
         {
             Debug.Log("OK");
-            enemy.ReceiveDamage(damage);
+            enemyHealth.TakeDamage(damage);
             if(returnRoutine != null) { 
                 StopCoroutine (returnRoutine);
                 returnRoutine = null;

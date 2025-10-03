@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Dark : HomingProjectile
+public class Light : HomingProjectile
 {
     private Coroutine returnRoutine;
 
@@ -20,24 +20,24 @@ public class Dark : HomingProjectile
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Enemy enemy = collision.gameObject.GetComponentInParent<Enemy>();
-        if (enemy != null)
+        EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
+        if (enemyHealth != null)
         {
             Debug.Log("OK");
-            enemy.ReceiveDamage(damage);
+            enemyHealth.TakeDamage(damage);
             if (returnRoutine != null)
             {
                 StopCoroutine(returnRoutine);
                 returnRoutine = null;
             }
-            ObjectPool.instance.BackToPool(this.gameObject, ObjectType.Dark);
+            ObjectPool.instance.BackToPool(this.gameObject, ObjectType.Light);
         }
     }
 
     IEnumerator ReturnToPool()
     {
         yield return new WaitForSeconds(lifetime);
-        ObjectPool.instance.BackToPool(this.gameObject, ObjectType.Dark);
+        ObjectPool.instance.BackToPool(this.gameObject, ObjectType.Light);
         returnRoutine = null;
     }
 }

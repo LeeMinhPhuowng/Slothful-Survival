@@ -7,15 +7,8 @@ public class Enemy : MonoBehaviour
 {
     public EnemyInfoSO info;
     public Transform VFXPlayer;
-
-    private EnemyHealth enemyHealth;
     private int moveSpeed;
     private int currentHealth;
-
-    private void Awake()
-    {
-        enemyHealth = GetComponent<EnemyHealth>();
-    }
 
     private void OnEnable()
     {
@@ -41,11 +34,5 @@ public class Enemy : MonoBehaviour
     public void DecreaseCurrentHealth(int value)
     {
         currentHealth -= value;
-    }
-
-    public void ReceiveDamage(int damage)
-    {
-        enemyHealth.TakeDamage(damage);
-    }
-    
+    }  
 }

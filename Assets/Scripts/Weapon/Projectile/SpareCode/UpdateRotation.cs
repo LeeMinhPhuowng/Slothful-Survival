@@ -2,7 +2,7 @@
 using UnityEngine.Rendering.Universal;
 using static UnityEditor.FilePathAttribute;
 
-public class Rocket : AOEProjectile
+public class UpdateRotation : MonoBehaviour
 {
     Rigidbody2D rigidbody;
     private void Awake()

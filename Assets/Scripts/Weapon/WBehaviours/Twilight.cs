@@ -32,21 +32,19 @@
                 Collider2D enemy = enemies[Random.Range(0, enemies.Length)];
                 if(enemy != null)
                 {
-                    Debug.Log("Attacking" + enemy.name);
                     int tmp = Random.Range(0, 2);
                     if(tmp == 0)
                     {
-                        var projectile = ObjectPool.instance.SpawnFromPool(ObjectType.Dark, this.gameObject.transform.parent.position);
-                        projectile.GetComponent<Dark>().OnActivate(info.attackDamage, info.attackCooldown, enemy.gameObject);
+                        var projectile = ObjectPool.instance.SpawnFromPool(ObjectType.Dark, this.gameObject.transform.parent.position, Quaternion.identity, (o) => { o.GetComponent<Projectile>().Init(info.attackDamage, info.attackCooldown); });
+                        projectile.GetComponent<HomingProjectile>().SetTarget(enemy.gameObject);
                         yield return new WaitForSeconds(timeBetweenProjectiles);
                     } 
                     else
                     {
-                        var projectile = ObjectPool.instance.SpawnFromPool(ObjectType.Light, this.gameObject.transform.parent.position);
-                        projectile.GetComponent<Light>().OnActivate(info.attackDamage, info.attackCooldown, enemy.gameObject);
+                        var projectile = ObjectPool.instance.SpawnFromPool(ObjectType.Light, this.gameObject.transform.parent.position, Quaternion.identity, (o) => { o.GetComponent<Projectile>().Init(info.attackDamage, info.attackCooldown); });
+                        projectile.GetComponent<HomingProjectile>().SetTarget(enemy.gameObject);
                         yield return new WaitForSeconds(timeBetweenProjectiles);
-                    }    
-                
+                    }                
                 }    
             }
             isFiring = false;
