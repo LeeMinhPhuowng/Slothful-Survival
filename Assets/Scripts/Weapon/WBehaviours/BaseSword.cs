@@ -4,7 +4,6 @@ using UnityEngine;
 public class BaseSword : AWeaponBehaviour
 {
     [SerializeField] WeaponInfoSO info;
-    [SerializeField] GameObject slashVFX;
     [SerializeField] float VFXExistTime = 0.35f;
 
     public override void Attack(Transform castPosition)
@@ -23,9 +22,9 @@ public class BaseSword : AWeaponBehaviour
         }
         if(target != null)
         {
-            EnemyHealth enemyHealth = target.GetComponentInParent<EnemyHealth>();
+            Enemy enemy = target.GetComponent<Enemy>();
             GameObject vfx = ObjectPool.instance.SpawnFromPool(ObjectType.SlashVFX, target.transform.position);
-            enemyHealth.TakeDamage(info.attackDamage);
+            enemy.TakeDamage(info.attackDamage);
             StartCoroutine(ReturnVFX(vfx));
         }       
     }

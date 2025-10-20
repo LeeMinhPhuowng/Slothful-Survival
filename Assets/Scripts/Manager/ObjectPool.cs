@@ -90,6 +90,5 @@ public class ObjectPool : MonoBehaviour
     {
         obj.SetActive(false);
         poolDictionary[type].Enqueue(obj);
-        Debug.Log(poolDictionary[type].Count);
     }
 }

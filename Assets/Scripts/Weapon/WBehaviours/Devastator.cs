@@ -15,7 +15,7 @@ public class Devastator : AWeaponBehaviour
             if(current < distance)
             {
                 distance = current;
-                target = enemy.gameObject.GetComponentInParent<Enemy>();
+                target = enemy.gameObject.GetComponent<Enemy>();
             }
         }
         if (target != null)

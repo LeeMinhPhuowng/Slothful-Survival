@@ -1,8 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInfo : MonoBehaviour, IDamageable
 {
+    //Properties
     private float maxHealth;
     private float currentHealth;
     private float moveSpeed;
@@ -11,6 +13,8 @@ public class PlayerInfo : MonoBehaviour, IDamageable
     [SerializeField] float basePickupRange;
 
     private HealthBarValue healthBarValue;
+
+    //Flash Effect
     private SpriteRenderer spriteRenderer;
     private MaterialPropertyBlock mpb;
     private Coroutine vfxRoutine;
@@ -106,30 +110,21 @@ public class PlayerInfo : MonoBehaviour, IDamageable
         healthBarValue = HealthBarCanvas.Instance.gameObject.GetComponentInChildren<HealthBarValue>();
     }
 
-    //Calculate received damage
     public void TakeDamage(int amount)
     {
         CurrentHealth -= amount;
+        TriggerTakeDamageVFX();
+        healthBarValue.SetHealth(GetCurrentHealthPercentage());
         if(CurrentHealth <= 0)
         {
             Die();
         }
     }
 
-    private void Die()
+    public void Die()
     {
-        this.gameObject.SetActive(false);
-    }
-
-    //Check collision
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Enemy"))
-        {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            TakeDamage(enemy.info.damage);
-            TriggerTakeDamageVFX();
-        }
+        Destroy(gameObject);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     //TakeDamage Effect

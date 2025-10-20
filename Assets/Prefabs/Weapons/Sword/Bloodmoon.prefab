@@ -4980,17 +4980,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   info: {fileID: 11400000, guid: 26bda03958fec7e4ea93e928c9f249b4, type: 2}
-  projectilePrefab: {fileID: 8707204994675441862, guid: c9bfb2965c7d2324b9fea8097afb933a,
-    type: 3}
-  directions:
-  - {x: -1, y: -1}
-  - {x: 0, y: -1}
-  - {x: 0, y: 1}
-  - {x: -1, y: 1}
-  - {x: 1, y: -1}
-  - {x: -1, y: 0}
-  - {x: 1, y: 0}
-  - {x: 1, y: 1}
+  VFXExistTime: 0.5
+  enemyAmount: 15
+  timeBetweenSlashes: 0.25
 --- !u!1001 &5151083496024443211
 PrefabInstance:
   m_ObjectHideFlags: 0

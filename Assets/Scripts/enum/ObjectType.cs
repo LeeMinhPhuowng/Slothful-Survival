@@ -15,5 +15,5 @@ public enum ObjectType
     Dark,
     Light,
     SlashVFX,
-
+    BloodSlashVFX
 }

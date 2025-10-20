@@ -12,15 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84cdc9b9b6e04d04cb4b7a50264d655e, type: 3}
   m_Name: Wave 1
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 4187250634215652156, guid: 7804b13ff7db68b49b7315477701e3be, type: 3}
-  - {fileID: 4187250634215652156, guid: 7804b13ff7db68b49b7315477701e3be, type: 3}
-  - {fileID: 4187250634215652156, guid: 7804b13ff7db68b49b7315477701e3be, type: 3}
-  - {fileID: 4187250634215652156, guid: 7804b13ff7db68b49b7315477701e3be, type: 3}
-  - {fileID: 4187250634215652156, guid: 7804b13ff7db68b49b7315477701e3be, type: 3}
-  - {fileID: 4187250634215652156, guid: 7804b13ff7db68b49b7315477701e3be, type: 3}
-  - {fileID: 4187250634215652156, guid: 7804b13ff7db68b49b7315477701e3be, type: 3}
-  - {fileID: 4187250634215652156, guid: 7804b13ff7db68b49b7315477701e3be, type: 3}
-  - {fileID: 4187250634215652156, guid: 7804b13ff7db68b49b7315477701e3be, type: 3}
-  - {fileID: 4187250634215652156, guid: 7804b13ff7db68b49b7315477701e3be, type: 3}
-  timeTillNextWave: 10
+  waveInfos:
+  - type: 1
+    amount: 1
+  timeTillNextWave: 5

@@ -1,22 +1,17 @@
     using System.Collections;
     using System.Collections.Generic;
-        using UnityEngine;
-        using UnityEngine.Tilemaps;
+    using UnityEngine;
+    using UnityEngine.Tilemaps;
 
-        public class Spawner : MonoBehaviour
-        {
-            public static Spawner Instance;
+    public class Spawner : MonoBehaviour
+    {
+        public static Spawner Instance;
         
-            [Header("Tilemap Properties")]
-            [SerializeField] Tilemap grassTilemap;
-            [SerializeField] int xMax;
-            [SerializeField] int yMax;
-            [SerializeField] int xMin;
-            [SerializeField] int yMin;
-            [Header("Enemy Waves")]
-            [SerializeField] List<EnemyWaveSO> enemyWaves;
-    
-            List<Vector3> spawnPositions = new List<Vector3>();
+        [Header("Enemy Waves")]
+        [SerializeField] List<EnemyWaveSO> enemyWaves;
+        Tilemap levelTilemap;
+        LevelSO levelSO;
+        List<Vector3> spawnPositions = new List<Vector3>();
 
         private void Awake()
         {
@@ -24,43 +19,54 @@
         }
 
         void Start()
-            {
-                InitializeSpawnPositions();
-                StartCoroutine(SpawnEnemyWaves());
-            }
+        {
+            levelSO = CoverFlow.instance.GetLevelSO();
+            levelTilemap = GameObject.FindWithTag("MainTilemap").GetComponent<Tilemap>();
+            InitializeSpawnPositions();
+            StartCoroutine(SpawnEnemyWaves());
+        }
 
-            IEnumerator SpawnEnemyWaves()
+        IEnumerator SpawnEnemyWaves()
+        {
+            foreach (var wave in enemyWaves)
             {
-                foreach (var wave in enemyWaves)
+                foreach (var waveInfo in wave.waveInfos)
                 {
-                    foreach (var enemy in wave.enemies)
+                    for(int i = 0; i < waveInfo.amount; i++)
                     {
-                        Enemy target = enemy.GetComponent<Enemy>();
                         Vector3 spawnPos = GetSpawnPosition();
-                        ObjectPool.instance.SpawnFromPool(target.info.type, spawnPos);
-                    }
-                    yield return new WaitForSeconds(wave.timeTillNextWave);
-                }
-            }
-
-            void InitializeSpawnPositions()
-            {
-                for (int x = xMin; x <= xMax; x++)
-                {
-                    for (int y = yMin; y <= yMax; y++)
-                    {
-                        if (x == xMin || x == xMax || y == yMin || y == yMax)
-                        {
-                            Vector3Int cellPos = new Vector3Int(x, y, 0);
-                            Vector3 worldPos = grassTilemap.CellToWorld(cellPos) + grassTilemap.cellSize / 2f;
-                            spawnPositions.Add(worldPos);
-                        }
+                        ObjectPool.instance.SpawnFromPool(waveInfo.type, spawnPos);
                     }
                 }
-            }
-            Vector3 GetSpawnPosition()
-            {
-                int index = Random.Range(0, spawnPositions.Count);
-                return spawnPositions[index];
+                yield return new WaitForSeconds(wave.timeTillNextWave);
             }
         }
+            
+        void InitializeSpawnPositions()
+        {
+            for (int x = levelSO.mapMinX; x <= levelSO.mapMaxX; x++)
+            {
+                for (int y = levelSO.mapMinY; y <= levelSO.mapMaxY; y++)
+                {
+                    if (x == levelSO.mapMinX || x == levelSO.mapMaxX || y == levelSO.mapMinY || y == levelSO.mapMaxY)
+                    {
+                        Vector3Int cellPos = new Vector3Int(x, y, 0);
+                        Vector3 worldPos = levelTilemap.CellToWorld(cellPos) + levelTilemap.cellSize / 2f;
+                        spawnPositions.Add(worldPos);
+                    }
+                }
+            }
+        }
+
+        Vector3 GetSpawnPosition()
+        {
+            int index = Random.Range(0, spawnPositions.Count);
+            return spawnPositions[index];
+        }
+
+        public void InitializeEnemyWaves(List<EnemyWaveSO> waves)
+        {
+            enemyWaves.AddRange(waves);
+        }
+
+    }

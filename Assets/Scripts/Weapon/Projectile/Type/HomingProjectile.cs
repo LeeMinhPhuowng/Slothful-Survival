@@ -21,14 +21,14 @@ public class HomingProjectile : Projectile
         this.target = target;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (hasHit) return;
-        EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
-        if (enemyHealth != null)
+        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+        if (enemy != null)
         {
             hasHit = true;
-            enemyHealth.TakeDamage(damage);
+            enemy.TakeDamage(damage);
             BackToPoolImmediately();
         }
     }

@@ -21,14 +21,15 @@
         IEnumerator Fire()
         {
             isFiring = true;
-            var enemies = Physics2D.OverlapCircleAll(this.gameObject.transform.parent.position, info.attackRange, enemyLayer);
-            if (enemies.Length == 0)
-            {
-                isFiring = false;
-                yield break;
-            }
+
             for(int i = 0; i < projectileAmount; i++)
             {
+                var enemies = Physics2D.OverlapCircleAll(this.gameObject.transform.parent.position, info.attackRange, enemyLayer);
+                if (enemies.Length == 0)
+                {
+                    isFiring = false;
+                    yield break;
+                }
                 Collider2D enemy = enemies[Random.Range(0, enemies.Length)];
                 if(enemy != null)
                 {

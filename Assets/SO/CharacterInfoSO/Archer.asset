@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6c5e27ed1e19746a021edd277ba81d, type: 3}
   m_Name: Archer
   m_EditorClassIdentifier: 
-  maxHealth: 70
+  maxHealth: 700
   moveSpeed: 6
   startWeapon: {fileID: 6843897308620803910, guid: 10a3a93ba0d5fc24f8b10ac6a82b0523,
     type: 3}

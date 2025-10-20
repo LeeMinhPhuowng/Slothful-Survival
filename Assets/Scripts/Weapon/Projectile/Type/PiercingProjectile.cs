@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class PiercingProjectile : Projectile
 {    
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
-        if (enemyHealth != null)
+        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+        if (enemy != null)
         {
-            enemyHealth.TakeDamage(damage);
+            enemy.TakeDamage(damage);
         }
     }
 }

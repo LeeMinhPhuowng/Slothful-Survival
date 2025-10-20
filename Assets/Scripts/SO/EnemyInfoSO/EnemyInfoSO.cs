@@ -6,5 +6,6 @@ public class EnemyInfoSO : ScriptableObject
     public int moveSpeed;
     public int expDrop;
     public int damage;
+    public float attackCooldown;
     public ObjectType type;
 }

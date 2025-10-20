@@ -1,33 +1,48 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
 public class Bloodmoon : AWeaponBehaviour
 {
     [SerializeField] WeaponInfoSO info;
-    [SerializeField] GameObject projectilePrefab;
-    [SerializeField] Vector2[] directions;
+    [SerializeField] float VFXExistTime;
+    [SerializeField] int enemyAmount;
+    [SerializeField] float timeBetweenSlashes;
+
+    bool isSlashing = false;
     public override void Attack(Transform castPosition)
     {
-        var enemies = Physics2D.OverlapCircleAll(castPosition.position, info.attackRange, enemyLayer);
-        if (enemies.Length == 0) return;
-        float minDistance = Mathf.Infinity;
-        Collider2D target = null;
-        foreach (var enemy in enemies)
+        if(isSlashing) { return; }
+        StartCoroutine(Slash());
+    }
+
+    IEnumerator Slash()
+    {
+        isSlashing = true;
+        
+        for(int i = 0; i < enemyAmount; i++)
         {
-            if (Vector2.Distance(castPosition.position, enemy.transform.position) < minDistance)
+            var enemies = Physics2D.OverlapCircleAll(this.gameObject.transform.parent.position, info.attackRange, enemyLayer);
+            if (enemies.Length == 0)
             {
-                minDistance = Vector2.Distance(castPosition.position, enemy.transform.position);
-                target = enemy;
+                isSlashing = false;
+                yield break;
+            }
+            Collider2D target = enemies[Random.Range(0, enemies.Length)];
+            if(target != null)
+            {
+                Enemy enemy = target.GetComponent<Enemy>();
+                GameObject vfx = ObjectPool.instance.SpawnFromPool(ObjectType.BloodSlashVFX, target.transform.position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
+                //enemy?.TakeDamage(info.attackDamage);
+                StartCoroutine(ReturnVFX(vfx));
+                yield return new WaitForSeconds(timeBetweenSlashes);
             }
         }
-        if (target != null)
-        {
-            Vector2 direction = (target.transform.position - castPosition.position).normalized;
-            Quaternion quaternion = Quaternion.FromToRotation(Vector3.right, direction);
-            ObjectType type = projectilePrefab.GetComponent<Projectile>().type;
+        isSlashing = false;
+    }
 
-            var projectileObj = ObjectPool.instance.SpawnFromPool(type, castPosition.position, quaternion, (o) => { o.GetComponent<Projectile>().Init(info.attackDamage, info.attackCooldown); });
-            projectileObj.GetComponent<Projectile>().MoveForward();
-        }
+    IEnumerator ReturnVFX(GameObject vfx)
+    {
+        yield return new WaitForSeconds(VFXExistTime);
+        ObjectPool.instance.BackToPool(vfx, ObjectType.BloodSlashVFX);
     }
 }
