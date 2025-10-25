@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using Pathfinding;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -7,13 +8,11 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] Transform mapContainer;
     private LevelSO level;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         this.gameObject.SetActive(true);
     }
 
-    // Update is called once per frame
     void Update()
     {
         level = CoverFlow.instance.GetLevelSO();
@@ -24,6 +23,7 @@ public class LevelLoader : MonoBehaviour
     {
         Spawner.Instance.InitializeEnemyWaves(level.enemyWaves);
         Instantiate(level.tilemapPrefab, mapContainer);
+        AstarPath.active.Scan();
         this.gameObject.SetActive(false);
     }
 }

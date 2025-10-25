@@ -123,7 +123,6 @@ public class PlayerInfo : MonoBehaviour, IDamageable
 
     public void Die()
     {
-        Destroy(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

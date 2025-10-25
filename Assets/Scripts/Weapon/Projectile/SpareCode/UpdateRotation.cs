@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using static UnityEditor.FilePathAttribute;
 
 public class UpdateRotation : MonoBehaviour
 {

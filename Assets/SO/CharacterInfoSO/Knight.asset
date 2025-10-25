@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Knight
   m_EditorClassIdentifier: 
   maxHealth: 100
-  moveSpeed: 5
+  moveSpeed: 4
   startWeapon: {fileID: 3442482019999103755, guid: d28e8c4071eabd64da04123295ae3931,
     type: 3}
   prefab: {fileID: 1588805232824488003, guid: 37220624ba19bfd45a57d9f881fe0660, type: 3}

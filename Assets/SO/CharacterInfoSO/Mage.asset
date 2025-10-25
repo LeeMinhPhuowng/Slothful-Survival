@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mage
   m_EditorClassIdentifier: 
   maxHealth: 50
-  moveSpeed: 6
+  moveSpeed: 5
   startWeapon: {fileID: 6843897308620803910, guid: 083f2d55f6b61384b85dc8f509565280,
     type: 3}
   prefab: {fileID: 1588805232824488003, guid: d00cf180c921e77429a257d73b61df4e, type: 3}

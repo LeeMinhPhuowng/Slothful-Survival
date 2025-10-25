@@ -144,6 +144,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4225665438877879208, guid: 93781b93d282853439103db250457d7b,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 65f9bfc9c3b43ab429fa8d010c19e858,
+        type: 2}
+    - target: {fileID: 4225665438877879208, guid: 93781b93d282853439103db250457d7b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 133689390178498930, guid: 65f9bfc9c3b43ab429fa8d010c19e858,
+        type: 2}
+    - target: {fileID: 4225665438877879208, guid: 93781b93d282853439103db250457d7b,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8236563699940878603, guid: 93781b93d282853439103db250457d7b,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -157,6 +174,23 @@ PrefabInstance:
     - target: {fileID: 8236563699940878603, guid: 93781b93d282853439103db250457d7b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891808908098699359, guid: 93781b93d282853439103db250457d7b,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 65f9bfc9c3b43ab429fa8d010c19e858,
+        type: 2}
+    - target: {fileID: 8891808908098699359, guid: 93781b93d282853439103db250457d7b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 133689390178498930, guid: 65f9bfc9c3b43ab429fa8d010c19e858,
+        type: 2}
+    - target: {fileID: 8891808908098699359, guid: 93781b93d282853439103db250457d7b,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a0a5f530f04534ab625c5c00fde34c, type: 3}
   m_Name: Devastator
   m_EditorClassIdentifier: 
-  attackDamage: 30
+  attackDamage: 20
   attackCooldown: 3
   attackRange: 8
   ID: 20

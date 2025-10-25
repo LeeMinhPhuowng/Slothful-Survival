@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a0a5f530f04534ab625c5c00fde34c, type: 3}
   m_Name: Bow I
   m_EditorClassIdentifier: 
-  attackDamage: 1
-  attackCooldown: 10
+  attackDamage: 40
+  attackCooldown: 2
   attackRange: 5
   ID: 14
   nextAugmentInfo:

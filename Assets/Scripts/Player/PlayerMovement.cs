@@ -7,23 +7,25 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveValue;
     Animator animator;
     Rigidbody2D rb;
+    FloatingJoystick joystick;
     private void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        joystick = FindObjectOfType<FloatingJoystick>();
     }
     void FixedUpdate()
     {
         Move();
     }
 
+    /*
     void OnMove(InputValue value)
     {
         moveValue = value.Get<Vector2>();
         RunAnimationCheck();
         FlipSprite();
     }
-
     void Move()
     {
         Vector2 currentPosition = transform.position;
@@ -31,6 +33,15 @@ public class PlayerMovement : MonoBehaviour
         Vector2 targetPosition = currentPosition + moveOffset;
         rb.MovePosition(targetPosition);
     }
+    */
+
+    void Move()
+    {
+        rb.linearVelocity = new Vector2(joystick.Horizontal * PlayerInfo.instance.MoveSpeed, joystick.Vertical * PlayerInfo.instance.MoveSpeed);
+        moveValue = rb.linearVelocity;
+        RunAnimationCheck();
+        FlipSprite();
+    }    
 
     void RunAnimationCheck()
     {
