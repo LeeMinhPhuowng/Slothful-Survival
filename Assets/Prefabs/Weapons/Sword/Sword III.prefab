@@ -67,12 +67,12 @@ PrefabInstance:
     - target: {fileID: 2139036717596482139, guid: 61e65497bd1354346a7d79c64c57e574,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2139036717596482139, guid: 61e65497bd1354346a7d79c64c57e574,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: 73106553
+      value: 1926092405
       objectReference: {fileID: 0}
     - target: {fileID: 2139036717596482139, guid: 61e65497bd1354346a7d79c64c57e574,
         type: 3}
@@ -126,6 +126,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   info: {fileID: 11400000, guid: 602a7d67659beee43a05832c5cf8b2d4, type: 2}
-  slashVFX: {fileID: 7867240962642339026, guid: 280e15f8611366a4081639e123bacc76,
-    type: 3}
   VFXExistTime: 0.35

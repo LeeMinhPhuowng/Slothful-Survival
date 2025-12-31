@@ -21,13 +21,13 @@ public class Enemy : MonoBehaviour, IDamageable
     //AI Pathfinding
     #region AI Pathfinding
     public AIPath AIPath { get; set; }
-    public AIDestinationSetter DestinationSetter {  get; set; } 
+    public AIDestinationSetter DestinationSetter { get; set; }
     public Seeker Seeker { get; set; }
     public Transform TargetTransform { get; set; }
     #endregion
 
     //Properties
-    public float MaxHealth {  get; set; } //Not use
+    public float MaxHealth { get; set; } //Not use
     public float CurrentHealth { get; set; }
     public int MoveSpeed { get; set; }
     public float AttackRange { get; set; }
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
         AIPath = GetComponent<AIPath>();
         DestinationSetter = GetComponent<AIDestinationSetter>();
-        Seeker = GetComponent<Seeker>();    
+        Seeker = GetComponent<Seeker>();
 
         EnemyStateMachine = new EnemyStateMachine();
 
@@ -97,7 +97,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public void ResetVelocity()
     {
         rb.linearVelocity = Vector2.zero;
-    }    
+    }
 
     #region Animation Actions
     public void SetBoolAnimation(string animation, bool value)
@@ -112,9 +112,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TriggerAnimEvent()
     {
-        Debug.Log(this.gameObject.name + EnemyStateMachine.CurrentState.ToString());
-        EnemyStateMachine.CurrentState.TriggerAnimationEvent();
-    }    
+
+    }
     #endregion
 
     #region Updates

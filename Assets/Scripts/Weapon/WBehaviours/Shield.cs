@@ -5,6 +5,7 @@ public class Shield : AWeaponBehaviour
 {
     [SerializeField] WeaponInfoSO info;
     [SerializeField] GameObject shields;
+    [SerializeField] float existTime;
     private GameObject shieldsObject;
 
     private void Start()
@@ -21,7 +22,12 @@ public class Shield : AWeaponBehaviour
     IEnumerator EnableShields()
     {
         shieldsObject.SetActive(true);
-        yield return new WaitForSeconds(info.attackCooldown / 2);
+        yield return new WaitForSeconds(existTime);
         shieldsObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(shieldsObject);
     }
 }

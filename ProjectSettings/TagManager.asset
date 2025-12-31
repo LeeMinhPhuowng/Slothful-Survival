@@ -66,5 +66,8 @@ TagManager:
   - name: Obstacle
     uniqueID: 4289326463
     locked: 0
+  - name: Weapon
+    uniqueID: 1926092405
+    locked: 0
   m_RenderingLayers:
   - Default

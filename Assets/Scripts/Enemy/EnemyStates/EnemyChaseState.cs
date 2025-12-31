@@ -23,6 +23,9 @@ public class EnemyChaseState : EnemyState
 
     public override void ExitState()
     {
+        Debug.Log(enemy.gameObject.name + "exited ChaseState");
+        enemy.AIPath.maxSpeed = 0;
+        enemy.AIPath.canMove = false;
         enemy.DestinationSetter.enabled = false;
         enemy.AIPath.enabled = false;
         enemy.Seeker.enabled = false;

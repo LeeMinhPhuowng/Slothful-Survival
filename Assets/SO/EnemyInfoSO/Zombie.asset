@@ -16,5 +16,6 @@ MonoBehaviour:
   moveSpeed: 2
   expDrop: 20
   damage: 2
-  attackCooldown: 2
+  attackRange: 1
+  attackCooldown: 1
   type: 2

@@ -4777,6 +4777,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4799,6 +4801,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 73106553
   m_SortingLayer: 6
   m_SortingOrder: 1
@@ -4911,12 +4914,12 @@ PrefabInstance:
     - target: {fileID: 2139036717596482139, guid: 61e65497bd1354346a7d79c64c57e574,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2139036717596482139, guid: 61e65497bd1354346a7d79c64c57e574,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: 73106553
+      value: 1926092405
       objectReference: {fileID: 0}
     - target: {fileID: 2139036717596482139, guid: 61e65497bd1354346a7d79c64c57e574,
         type: 3}
