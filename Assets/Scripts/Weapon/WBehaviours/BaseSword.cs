@@ -24,7 +24,7 @@ public class BaseSword : AWeaponBehaviour
         {
             Enemy enemy = target.GetComponent<Enemy>();
             GameObject vfx = ObjectPool.instance.SpawnFromPool(ObjectType.SlashVFX, target.transform.position);
-            enemy.TakeDamage(info.attackDamage);
+            enemy?.TakeDamage(info.attackDamage);
             StartCoroutine(ReturnVFX(vfx));
         }       
     }

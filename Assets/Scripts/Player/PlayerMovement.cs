@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     Rigidbody2D rb;
     FloatingJoystick joystick;
+
+    private int runBool = Animator.StringToHash("Run");
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -47,11 +49,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveValue.x == 0 && moveValue.y == 0)
         {
-            animator.SetBool("Run", false);
+            animator.SetBool(runBool, false);
         }
         else
         {
-            animator.SetBool("Run", true);
+            animator.SetBool(runBool, true);
         }
     }
 

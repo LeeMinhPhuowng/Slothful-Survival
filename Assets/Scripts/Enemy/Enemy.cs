@@ -21,13 +21,13 @@ public class Enemy : MonoBehaviour, IDamageable
     //AI Pathfinding
     #region AI Pathfinding
     public AIPath AIPath { get; set; }
-    public AIDestinationSetter DestinationSetter {  get; set; } 
+    public AIDestinationSetter DestinationSetter { get; set; }
     public Seeker Seeker { get; set; }
     public Transform TargetTransform { get; set; }
     #endregion
 
     //Properties
-    public float MaxHealth {  get; set; } //Not use
+    public float MaxHealth { get; set; } //Not use
     public float CurrentHealth { get; set; }
     public int MoveSpeed { get; set; }
     public float AttackRange { get; set; }
@@ -35,12 +35,9 @@ public class Enemy : MonoBehaviour, IDamageable
     private Animator animator;
     private Rigidbody2D rb;
 
-    //State Variables
-    public EnemyStateMachine EnemyStateMachine { get; set; }
+    private int attackTrigger = Animator.StringToHash("Attack");
 
-    public EnemyChaseState ChaseState { get; set; }
-    public EnemyAttackState AttackState { get; set; }
-    public EnemyIdleState IdleState { get; set; }
+    private bool isAttacking = false;
 
     private void Awake()
     {
@@ -48,14 +45,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
         AIPath = GetComponent<AIPath>();
         DestinationSetter = GetComponent<AIDestinationSetter>();
-        Seeker = GetComponent<Seeker>();    
-
-        EnemyStateMachine = new EnemyStateMachine();
-
-        ChaseState = new EnemyChaseState(this, EnemyStateMachine);
-        AttackState = new EnemyAttackState(this, EnemyStateMachine);
-        IdleState = new EnemyIdleState(this, EnemyStateMachine);
-
+        Seeker = GetComponent<Seeker>();
+        
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -63,13 +54,22 @@ public class Enemy : MonoBehaviour, IDamageable
     private void OnEnable()
     {
         InitializeFromStat();
+        DestinationSetter.target = PlayerInfo.instance.transform;
+        Ticker.OnTickAction += Tick;
+        GameManager.EnemyCount++;
+    }
+
+    private void OnDisable()
+    {
+        Ticker.OnTickAction -= Tick;
+        GameManager.EnemyCount--;
     }
 
     private void InitializeFromStat()
     {
         CurrentHealth = info.maxHealth;
         MoveSpeed = info.moveSpeed;
-        EnemyStateMachine.Initialize(ChaseState);
+        AIPath.maxSpeed = MoveSpeed;
     }
 
     public void TakeDamage(int damage)
@@ -93,42 +93,30 @@ public class Enemy : MonoBehaviour, IDamageable
         expComponent.Amount = info.expDrop;
         expComponent.AmountModifier();
     }
-
-    public void ResetVelocity()
+    void Update()
     {
-        rb.linearVelocity = Vector2.zero;
-    }    
-
-    #region Animation Actions
-    public void SetBoolAnimation(string animation, bool value)
-    {
-        animator.SetBool(animation, value);
+        
     }
 
-    public void SetTriggerAnimation(string animation)
+    //runs every 0.2 secs
+    private void Tick()
     {
-        animator.SetTrigger(animation);
+        if (AIPath.desiredVelocity.x >= 0.01f)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (AIPath.desiredVelocity.x <= -0.01f)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+
+        if (Vector2.Distance(this.transform.position, PlayerInfo.instance.transform.position) <= info.attackRange && isAttacking == false)
+        {
+            Debug.Log("In range");
+            StartCoroutine(EnemyAttack());
+        }
     }
-
-    public void TriggerAnimEvent()
-    {
-        Debug.Log(this.gameObject.name + EnemyStateMachine.CurrentState.ToString());
-        EnemyStateMachine.CurrentState.TriggerAnimationEvent();
-    }    
-    #endregion
-
-    #region Updates
-    private void Update()
-    {
-        EnemyStateMachine.CurrentState.FrameUpdate();
-    }
-
-    private void FixedUpdate()
-    {
-        EnemyStateMachine.CurrentState.PhysicsUpdate();
-    }
-    #endregion
-
+    
     #region TakeDmgVFX Coroutine
     private void TriggerTakeDamageVFX()
     {
@@ -151,5 +139,21 @@ public class Enemy : MonoBehaviour, IDamageable
         block.SetFloat("_FlAmount", 0);
         spriteRenderer.SetPropertyBlock(block);
     }
+    #endregion
+
+    #region EnemyAttack
+    IEnumerator EnemyAttack()
+    {
+        isAttacking = true;
+        AIPath.canMove = false;
+        animator.SetTrigger(attackTrigger);
+        yield return new WaitForSeconds(0.8f);
+        PlayerInfo.instance.TakeDamage(info.damage);
+        Debug.Log(this.gameObject.name + "Attack!");
+        yield return new WaitForSeconds(info.attackCooldown);
+        isAttacking = false;
+        AIPath.canMove = true;
+    }
+
     #endregion
 }

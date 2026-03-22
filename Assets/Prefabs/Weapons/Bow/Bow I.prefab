@@ -72,12 +72,12 @@ PrefabInstance:
     - target: {fileID: 2139036717596482139, guid: 61e65497bd1354346a7d79c64c57e574,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2139036717596482139, guid: 61e65497bd1354346a7d79c64c57e574,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: 73106553
+      value: 1926092405
       objectReference: {fileID: 0}
     - target: {fileID: 2139036717596482139, guid: 61e65497bd1354346a7d79c64c57e574,
         type: 3}
@@ -87,7 +87,7 @@ PrefabInstance:
     - target: {fileID: 2762722152618124702, guid: 61e65497bd1354346a7d79c64c57e574,
         type: 3}
       propertyPath: m_Name
-      value: Bow
+      value: Bow I
       objectReference: {fileID: 0}
     - target: {fileID: 5273775346641264913, guid: 61e65497bd1354346a7d79c64c57e574,
         type: 3}
