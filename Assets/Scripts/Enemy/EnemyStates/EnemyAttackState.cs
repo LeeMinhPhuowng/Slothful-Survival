@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 
 public class EnemyAttackState : EnemyState
@@ -48,3 +49,4 @@ public class EnemyAttackState : EnemyState
         base.PhysicsUpdate();
     }
 }
+*/

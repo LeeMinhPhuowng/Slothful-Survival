@@ -1,4 +1,4 @@
-using Pathfinding;
+/*using Pathfinding;
 using UnityEngine;
 
 public class EnemyChaseState : EnemyState
@@ -46,3 +46,4 @@ public class EnemyChaseState : EnemyState
 
     }
 }
+*/

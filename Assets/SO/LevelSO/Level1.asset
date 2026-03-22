@@ -17,6 +17,26 @@ MonoBehaviour:
     type: 3}
   enemyWaves:
   - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
+  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
+  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
+  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
+  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
+  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
+  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
+  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
+  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
+  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
+  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
+  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
+  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
+  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
+  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
+  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
+  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
+  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
+  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
+  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
+  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
   levelTime: 300
   mapMaxX: 48
   mapMaxY: 47

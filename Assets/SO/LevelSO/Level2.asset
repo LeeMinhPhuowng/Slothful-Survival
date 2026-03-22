@@ -16,36 +16,11 @@ MonoBehaviour:
   tilemapPrefab: {fileID: 5805006633134853169, guid: 21139d87966780e469c854b8cc827729,
     type: 3}
   enemyWaves:
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
+  - {fileID: 11400000, guid: 7eaa37228853c5442b34ea9d89e42be1, type: 2}
+  - {fileID: 11400000, guid: 7eaa37228853c5442b34ea9d89e42be1, type: 2}
+  - {fileID: 11400000, guid: 7eaa37228853c5442b34ea9d89e42be1, type: 2}
+  - {fileID: 11400000, guid: 7eaa37228853c5442b34ea9d89e42be1, type: 2}
+  - {fileID: 11400000, guid: 7eaa37228853c5442b34ea9d89e42be1, type: 2}
   levelTime: 300
   mapMaxX: 48
   mapMaxY: 47

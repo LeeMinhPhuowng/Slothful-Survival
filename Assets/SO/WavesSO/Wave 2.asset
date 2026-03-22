@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveInfos:
   - type: 2
-    amount: 25
+    amount: 15
   - type: 1
-    amount: 25
-  - type: 0
-    amount: 25
-  timeTillNextWave: 30
+    amount: 10
+  timeTillNextWave: 40

@@ -1,4 +1,6 @@
 using UnityEngine;
+using TMPro;
+using System.Drawing;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +15,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gameScene;
     [SerializeField] GameObject mainMenuScene;
 
+    [Header("Analytics")]
+    [SerializeField] TextMeshProUGUI enemyCount;
+    [SerializeField] TextMeshProUGUI fps;
+
+    public static int EnemyCount;
+
+    float timer = 0;
+    int fpsInt = 0;
+    int frameCount = 0;
+
     private void OnEnable()
     {
         mainMenuScene.SetActive(true);
@@ -22,8 +34,33 @@ public class GameManager : MonoBehaviour
         playerLevelManager.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
         augmentManager.gameObject.SetActive(false);
-        levelLoader.gameObject.SetActive(false);     
+        levelLoader.gameObject.SetActive(false);
+        Ticker.OnTickAction += Tick;
     }
+
+    private void OnDisable()
+    {
+        Ticker.OnTickAction -= Tick;
+    }
+
+    private void Update()
+    {
+        frameCount++;
+        timer += Time.unscaledDeltaTime;
+        if(timer >= 0.2f)
+        {
+            fpsInt = Mathf.RoundToInt(frameCount / timer);
+            timer = 0f;
+            frameCount = 0;
+        }       
+    }
+
+    private void Tick()
+    {
+        enemyCount.text = EnemyCount.ToString();
+        fps.text = fpsInt.ToString();
+    }    
+
     public void OnMainMenuPlayButtonClicked()
     {
         mainMenuScene.SetActive(false);

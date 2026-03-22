@@ -1,5 +1,4 @@
-using UnityEngine;
-
+/*
 public class EnemyIdleState : EnemyState
 {
     float timeElapsed;
@@ -49,3 +48,4 @@ public class EnemyIdleState : EnemyState
 
 
 }
+*/

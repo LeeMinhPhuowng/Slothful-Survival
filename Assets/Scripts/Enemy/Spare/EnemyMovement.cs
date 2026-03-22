@@ -1,4 +1,4 @@
-/*using Pathfinding;
+using Pathfinding;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -34,4 +34,3 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 }
-*/
