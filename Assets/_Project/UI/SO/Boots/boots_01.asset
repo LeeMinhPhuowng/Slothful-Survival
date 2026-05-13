@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17fad055e93a394bbe82b00874f22af, type: 3}
+  m_Name: boots_01
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Core.EquipmentItemSO
+  ItemId: 'boots_01 '
+  DisplayName: Boots
+  Description: Standard leather boots.
+  Rarity: 0
+  Icon: {fileID: -2364743593403321646, guid: 46920d7b43a2634468d260f230fd55c8, type: 3}
+  Slot: 2
+  Level: 1
+  IsUnlocked: 1
+  BuyPrice: 80
+  SellPrice: 40
+  Armor: 3
+  Damage: 0
+  MaxHealth: 5
+  MoveSpeed: 100

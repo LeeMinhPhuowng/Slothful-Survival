@@ -33,6 +33,9 @@ namespace Pathfinding {
 		/// <summary>Number of days between update checks</summary>
 		const double updateCheckRate = 1F;
 
+		/// <summary>Disable editor update checks to avoid insecure HTTP requests in projects that block them.</summary>
+		const bool disableAutomaticUpdateChecks = true;
+
 		/// <summary>URL to the version file containing the latest version number.</summary>
 		const string updateURL = "http://www.arongranberg.com/astar/version.php";
 
@@ -108,7 +111,9 @@ namespace Pathfinding {
 
 		static AstarUpdateChecker() {
 			// Add a callback so that we can parse the message when it has been downloaded
-			EditorApplication.update += UpdateCheckLoop;
+			if (!disableAutomaticUpdateChecks) {
+				EditorApplication.update += UpdateCheckLoop;
+			}
 			EditorBase.getDocumentationURL = () => GetURL("documentation");
 		}
 
@@ -133,6 +138,10 @@ namespace Pathfinding {
 
 		/// <summary>Initiate a check for updates now, regardless of when the last check was done</summary>
 		public static void CheckForUpdatesNow () {
+			if (disableAutomaticUpdateChecks) {
+				return;
+			}
+
 			lastUpdateCheck = System.DateTime.UtcNow.AddDays(-5);
 
 			// Remove the callback if it already exists

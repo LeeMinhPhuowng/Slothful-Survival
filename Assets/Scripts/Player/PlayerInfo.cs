@@ -1,4 +1,8 @@
 using System.Collections;
+using Game.UI.Data;
+using Game.UI.Model;
+using Game.UI.Service;
+using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,6 +32,20 @@ public class PlayerInfo : MonoBehaviour, IDamageable
         instance = this;    
         spriteRenderer = GetComponent<SpriteRenderer>();
         mpb = new MaterialPropertyBlock();
+    }
+
+    [Inject]
+    private void Construct(InventoryService inventoryService)
+    {
+        foreach ((EquipmentSlot slot, EquipmentItemModel item) in inventoryService.EquippedItems)
+        {
+            if (item == null)
+            {
+                continue;
+            }
+
+            // Cong chi so tu Item
+        }
     }
 
     private void Update()

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17fad055e93a394bbe82b00874f22af, type: 3}
+  m_Name: armor_01
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Core.EquipmentItemSO
+  ItemId: armor_01
+  DisplayName: Cloth Tunic
+  Description: A simple cloth tunic.
+  Rarity: 0
+  Icon: {fileID: 2785228765426280281, guid: f9d5735acd9fae84caca62a56ee0d950, type: 3}
+  Slot: 0
+  Level: 1
+  IsUnlocked: 1
+  BuyPrice: 100
+  SellPrice: 50
+  Armor: 5
+  Damage: 0
+  MaxHealth: 10
+  MoveSpeed: 0

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Cinemachine;
 using UnityEngine.Experimental.Animations;
+using Game.UI.Data;
 public class PlayerSetter : MonoBehaviour
 {
     [SerializeField] List<CharacterInfoSO> playerInfos;
@@ -15,13 +16,13 @@ public class PlayerSetter : MonoBehaviour
     [SerializeField] CinemachineCamera runCamera;
     [SerializeField] CinemachineCamera idleCamera;
     //Main Menu Player Anim
-    [SerializeField] Animator mainMenuPlayerAnimator;
+    // [SerializeField] Animator mainMenuPlayerAnimator;
     //Game Scene
     [SerializeField] GameObject gameScene;
 
-    private bool isKnight = true;
-    private bool isArcher = false;
-    private bool isMage = false;
+    // private bool isKnight = true;
+    // private bool isArcher = false;
+    // private bool isMage = false;
     private int playerIndex;
     public static PlayerSetter instance;
 
@@ -39,10 +40,15 @@ public class PlayerSetter : MonoBehaviour
         Spawner.Instance.gameObject.SetActive(false);
     }
     */
+
+    private void Start()
+    {
+        SpawnPlayer();
+    }
     public void OnKnightChosen()
     {
         playerIndex = 0;
-        mainMenuPlayerAnimator.Play("KnightIdle");
+        // mainMenuPlayerAnimator.Play("KnightIdle");
         this.gameObject.SetActive(false);
         gameScene.SetActive(false);
     }
@@ -50,10 +56,10 @@ public class PlayerSetter : MonoBehaviour
     public void OnArcherChosen()
     {
         playerIndex = 1;
-        isKnight = false;
-        isMage = false;
-        isArcher = true;
-        mainMenuPlayerAnimator.Play("ArcherIdle");
+        // isKnight = false;
+        // isMage = false;
+        // isArcher = true;
+        // mainMenuPlayerAnimator.Play("ArcherIdle");
         this.gameObject.SetActive(false);
         gameScene.SetActive(false);
     }
@@ -61,10 +67,10 @@ public class PlayerSetter : MonoBehaviour
     public void OnMageChosen()
     {
         playerIndex = 2;
-        isKnight = false;
-        isMage = true;
-        isArcher = false;
-        mainMenuPlayerAnimator.Play("MageIdle");
+        // isKnight = false;
+        // isMage = true;
+        // isArcher = false;
+        // mainMenuPlayerAnimator.Play("MageIdle");
         this.gameObject.SetActive(false);
         gameScene.SetActive(false);
     }
@@ -72,7 +78,16 @@ public class PlayerSetter : MonoBehaviour
     private void SpawnPlayer()
     {
         //Instantiate Player
-        CharacterInfoSO characterInfo = playerInfos[playerIndex];
+        CharacterInfoSO characterInfo = GameplayLaunchContext.CharacterConfig != null
+            ? GameplayLaunchContext.CharacterConfig
+            : playerInfos[playerIndex];
+
+        if (characterInfo == null)
+        {
+            Debug.LogError("[PlayerSetter] Cannot spawn player because CharacterInfoSO is missing.");
+            return;
+        }
+
         GameObject player = Instantiate(characterInfo.prefab, spawnPoint.position, Quaternion.identity, playerGameObject);
         GameObject hpBar = Instantiate(healthBar, healthBarCanvas.transform);
         WeaponManager.Instance.AddWeapon(characterInfo.startWeapon);

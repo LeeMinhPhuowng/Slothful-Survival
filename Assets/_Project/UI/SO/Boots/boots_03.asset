@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17fad055e93a394bbe82b00874f22af, type: 3}
+  m_Name: boots_03
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Core.EquipmentItemSO
+  ItemId: boots_03
+  DisplayName: Iron Boots
+  Description: Heavy boots of iron.
+  Rarity: 2
+  Icon: {fileID: -6303000779980170619, guid: dd36f702b77db36418b82c399d2696e7, type: 3}
+  Slot: 2
+  Level: 1
+  IsUnlocked: 0
+  BuyPrice: 300
+  SellPrice: 150
+  Armor: 12
+  Damage: 0
+  MaxHealth: 15
+  MoveSpeed: 0

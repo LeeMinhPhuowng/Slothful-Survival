@@ -1,29 +1,46 @@
-using TMPro;
-using UnityEngine;
-using Pathfinding;
+// using TMPro;
+// using UnityEngine;
+// using Pathfinding;
+// using Game.UI.Data;
 
-public class LevelLoader : MonoBehaviour
-{
-    [SerializeField] private TextMeshProUGUI levelName;
-    [SerializeField] Transform mapContainer;
-    private LevelSO level;
+// public class LevelLoader : MonoBehaviour
+// {
+//     [SerializeField] private TextMeshProUGUI levelName;
+//     [SerializeField] Transform mapContainer;
+//     private LevelSO level;
 
-    void Start()
-    {
-        this.gameObject.SetActive(true);
-    }
+//     void Start()
+//     {
+//         this.gameObject.SetActive(true);
+//     }
 
-    void Update()
-    {
-        level = CoverFlow.instance.GetLevelSO();
-        levelName.text = level.levelName;
-    }
+//     void Update()
+//     {
+//         if (GameplayLaunchContext.MapConfig != null)
+//         {
+//             level = GameplayLaunchContext.MapConfig;
+//         }
+//         // else if (CoverFlow.instance != null)
+//         // {
+//         //     level = CoverFlow.instance.GetLevelSO();
+//         // }
 
-    public void OnPlayButtonClicked()
-    {
-        Spawner.Instance.InitializeEnemyWaves(level.enemyWaves);
-        Instantiate(level.tilemapPrefab, mapContainer);
-        AstarPath.active.Scan();
-        this.gameObject.SetActive(false);
-    }
-}
+//         if (level != null && levelName != null)
+//         {
+//             levelName.text = level.levelName;
+//         }
+//     }
+
+//     public void OnPlayButtonClicked()
+//     {
+//         if (level == null)
+//         {
+//             Debug.LogError("[LevelLoader] Cannot start gameplay because LevelSO is missing.");
+//             return;
+//         }
+
+        
+//         AstarPath.active.Scan();
+//         this.gameObject.SetActive(false);
+//     }
+// }

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17fad055e93a394bbe82b00874f22af, type: 3}
+  m_Name: pants_04
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Core.EquipmentItemSO
+  ItemId: pants_04
+  DisplayName: 'Shadow Leggings '
+  Description: Dark leggings for stealth.
+  Rarity: 3
+  Icon: {fileID: 8667231769258426476, guid: c591af5b38fd2bd48a07c07313667b96, type: 3}
+  Slot: 4
+  Level: 1
+  IsUnlocked: 0
+  BuyPrice: 600
+  SellPrice: 300
+  Armor: 12
+  Damage: 5
+  MaxHealth: 25
+  MoveSpeed: 1

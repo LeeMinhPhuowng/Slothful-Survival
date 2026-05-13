@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: aad6884ed9757ef4d947b8e3f463f5c6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4761095959475242625
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_0
+  - first:
+      213: 5315625277478728209
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_1
+  - first:
+      213: -8194277724358277562
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_2
+  - first:
+      213: 5675724278860043198
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_3
+  - first:
+      213: 2169268839302449774
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_4
+  - first:
+      213: -3941208338100468064
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_5
+  - first:
+      213: 2545903493015048175
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_6
+  - first:
+      213: 8637415672064130368
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_7
+  - first:
+      213: 1630307094297226218
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_8
+  - first:
+      213: -4910069628338857699
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_9
+  - first:
+      213: -8542532791530479978
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_10
+  - first:
+      213: -6509561369946782018
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_11
+  - first:
+      213: 6279017162837120153
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_12
+  - first:
+      213: -4408042689037441068
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_13
+  - first:
+      213: -8615670760146279163
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_14
+  - first:
+      213: -1644297472338741778
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_15
+  - first:
+      213: -416697205199711556
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_16
+  - first:
+      213: -1304704214254705858
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_17
+  - first:
+      213: -3306562788828619967
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_18
+  - first:
+      213: 801236042097716953
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_19
+  - first:
+      213: 2934252575681910824
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_20
+  - first:
+      213: 7567115667564101054
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_21
+  - first:
+      213: -1063246481849864894
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_22
+  - first:
+      213: -628475823351923014
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_23
+  - first:
+      213: 8127899526135130004
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_24
+  - first:
+      213: 6925212544617109518
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_25
+  - first:
+      213: 8476291396567686550
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_26
+  - first:
+      213: 272231826183740006
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_27
+  - first:
+      213: 7257925026245028843
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_28
+  - first:
+      213: 7378946126742906959
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_29
+  - first:
+      213: -979903600774691631
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_30
+  - first:
+      213: 3672632576346596041
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_31
+  - first:
+      213: 628114314683081641
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_32
+  - first:
+      213: 6136438023674273255
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_33
+  - first:
+      213: -6690470448336099974
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_34
+  - first:
+      213: -2840910048143984852
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_35
+  - first:
+      213: 6978656189168045218
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_36
+  - first:
+      213: -5978007431159501441
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_37
+  - first:
+      213: 1415180988880778658
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_38
+  - first:
+      213: 4913429307122566844
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_39
+  - first:
+      213: -6214118601029395157
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_40
+  - first:
+      213: 1514707728102083663
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_41
+  - first:
+      213: 6870330671367422294
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_42
+  - first:
+      213: 8379926718806798600
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_43
+  - first:
+      213: -4285791428397782190
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_44
+  - first:
+      213: 2242629072173192751
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_45
+  - first:
+      213: 3140332892851444793
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_46
+  - first:
+      213: 4387369939551229441
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_47
+  - first:
+      213: -1179416245206980352
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_48
+  - first:
+      213: 7723989974865134148
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_49
+  - first:
+      213: 920573338088923532
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_50
+  - first:
+      213: 9066244409009826260
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_51
+  - first:
+      213: 2415225670040203542
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_52
+  - first:
+      213: -1726872637322238034
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_53
+  - first:
+      213: 5144022184973283913
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_54
+  - first:
+      213: -7882852806151187504
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_55
+  - first:
+      213: 7672294560263717897
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_56
+  - first:
+      213: -8669275523552481818
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_57
+  - first:
+      213: 555282790875213978
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_58
+  - first:
+      213: -2683713740866633813
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_59
+  - first:
+      213: -5925503765288550979
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_60
+  - first:
+      213: 163140374480418470
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_61
+  - first:
+      213: -5696092343492996360
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_62
+  - first:
+      213: -7826710652033101337
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_63
+  - first:
+      213: -4647924264563740119
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_64
+  - first:
+      213: -8686205658743046192
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_65
+  - first:
+      213: 8728283396257590218
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_66
+  - first:
+      213: 4546155031150405182
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_67
+  - first:
+      213: 8859106064231608835
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_68
+  - first:
+      213: -3342639721383296165
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_69
+  - first:
+      213: 8393786491616864303
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_70
+  - first:
+      213: -5893705859868867780
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_71
+  - first:
+      213: -5439644711287196928
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_72
+  - first:
+      213: -7648433797389897201
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_73
+  - first:
+      213: 685627873216004789
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_74
+  - first:
+      213: 8369107384139395543
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_75
+  - first:
+      213: 876672741458919180
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_76
+  - first:
+      213: -6933720411487697496
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_77
+  - first:
+      213: 3562749242940790015
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_78
+  - first:
+      213: -7609124834317800123
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_79
+  - first:
+      213: -1826984057338761021
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_80
+  - first:
+      213: -5932129365119334451
+    second: 252076d0-17f9-4212-a6c5-ea9113a980ee_81
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ShopButton
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 689
+        width: 339
+        height: 257
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 112f437c605e4c940800000000000000
+      internalID: 5315625277478728209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProfileButton
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 691
+        width: 389
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6468ab823d3184e80800000000000000
+      internalID: -8194277724358277562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HomeButton
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 419
+        width: 412
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb3538c092934ce40800000000000000
+      internalID: 5675724278860043198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReturnButton
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 423
+        width: 341
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6a42fc148aca1e10800000000000000
+      internalID: 2169268839302449774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TryAgainButton
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 419
+        width: 410
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a6c6bdd5e30e49c0800000000000000
+      internalID: -3941208338100468064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseButton
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 145
+        width: 407
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fef8695fcbdd45320800000000000000
+      internalID: 2545903493015048175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ResumeButton
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 147
+        width: 337
+        height: 241
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04d36ce6ac34ed770800000000000000
+      internalID: 8637415672064130368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NextButton
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 147
+        width: 403
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeba26e1aa300a610800000000000000
+      internalID: 1630307094297226218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SettingsButton
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 697
+        width: 364
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b1aad72406a26439e1eb174f4be4b5
+      internalID: -4761095959475242625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0130694cc00d7bf4bbcc8544a4b7703c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":3.0},"gridSpriteSize":{"x":512.0,"y":341.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      HomeButton: 5675724278860043198
+      NextButton: 1630307094297226218
+      PauseButton: 2545903493015048175
+      ProfileButton: -8194277724358277562
+      ResumeButton: 8637415672064130368
+      ReturnButton: 2169268839302449774
+      SettingsButton: -4761095959475242625
+      ShopButton: 5315625277478728209
+      TryAgainButton: -3941208338100468064
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

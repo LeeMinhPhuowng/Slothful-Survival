@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17fad055e93a394bbe82b00874f22af, type: 3}
+  m_Name: boots_05
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Core.EquipmentItemSO
+  ItemId: boots_05
+  DisplayName: Arcane Boots
+  Description: Boots imbued with magic.
+  Rarity: 4
+  Icon: {fileID: -2049430820344573235, guid: 44ef138cb345fe04fa4bb38a7ff66126, type: 3}
+  Slot: 2
+  Level: 1
+  IsUnlocked: 0
+  BuyPrice: 900
+  SellPrice: 450
+  Armor: 15
+  Damage: 5
+  MaxHealth: 30
+  MoveSpeed: 3

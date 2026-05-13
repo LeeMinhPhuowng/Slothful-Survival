@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17fad055e93a394bbe82b00874f22af, type: 3}
+  m_Name: armor_05
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Core.EquipmentItemSO
+  ItemId: armor_05
+  DisplayName: 'Dragon Scale Armor '
+  Description: Forged from dragon scales.
+  Rarity: 4
+  Icon: {fileID: -2003157188203542301, guid: 6fedad1fc705bba418bd2d8a7a655d4f, type: 3}
+  Slot: 0
+  Level: 1
+  IsUnlocked: 0
+  BuyPrice: 1500
+  SellPrice: 750
+  Armor: 40
+  Damage: 10
+  MaxHealth: 80
+  MoveSpeed: -1

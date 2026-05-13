@@ -1,0 +1,19 @@
+{
+    "name": "Core.Foundation.Reactive.Demo",
+    "rootNamespace": "Core.Foundation.Reactive.Demo",
+    "references": [
+        "R3.Unity",
+        "Reflex",
+        "Core.Foundation",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

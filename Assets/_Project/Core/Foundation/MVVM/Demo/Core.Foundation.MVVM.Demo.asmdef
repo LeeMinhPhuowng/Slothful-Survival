@@ -1,0 +1,17 @@
+{
+    "name": "Core.Foundation.MVVM.Demo",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a1eecceb1709f6e46818f839dd7f2784",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

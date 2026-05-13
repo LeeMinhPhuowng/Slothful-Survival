@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] PlayerLevelManager playerLevelManager;
     [SerializeField] Spawner spawner;
     [SerializeField] AugmentManager augmentManager;
-    [SerializeField] LevelLoader levelLoader;
+    // [SerializeField] LevelLoader levelLoader;
 
     [Header("Game Sections")]
     [SerializeField] GameObject gameScene;
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         playerLevelManager.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
         augmentManager.gameObject.SetActive(false);
-        levelLoader.gameObject.SetActive(false);
+        // levelLoader.gameObject.SetActive(false);
         Ticker.OnTickAction += Tick;
     }
 
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         mainMenuScene.SetActive(false);
         gameScene.SetActive(true);
         
-        levelLoader.gameObject.SetActive(true);
+        // levelLoader.gameObject.SetActive(true);
         playerSetter.gameObject.SetActive(true);
         augmentManager.gameObject.SetActive(true);
     }
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         spawner.gameObject.SetActive(true);
         playerLevelManager.gameObject.SetActive(true);
         playerSetter.gameObject.SetActive(false);
-        levelLoader.OnPlayButtonClicked();
+        // levelLoader.OnPlayButtonClicked();
         playerSetter.OnPlayButtonClicked();
     }    
     
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         playerLevelManager.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
         augmentManager.gameObject.SetActive(false);
-        levelLoader.gameObject.SetActive(false);
+        // levelLoader.gameObject.SetActive(false);
     }
 
     public void OnCollectionButtonClicked()

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17fad055e93a394bbe82b00874f22af, type: 3}
+  m_Name: armor_04
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Core.EquipmentItemSO
+  ItemId: armor_04
+  DisplayName: 'Mage Robe '
+  Description: A robe woven with arcane thread.
+  Rarity: 3
+  Icon: {fileID: -3128727016709657007, guid: 05dd50c6acabf9848ae63dc5c535d4eb, type: 3}
+  Slot: 0
+  Level: 1
+  IsUnlocked: 0
+  BuyPrice: 700
+  SellPrice: 350
+  Armor: 15
+  Damage: 15
+  MaxHealth: 25
+  MoveSpeed: 0

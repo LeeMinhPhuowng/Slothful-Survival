@@ -1,6 +1,7 @@
     using System.Collections;
     using System.Collections.Generic;
-    using UnityEngine;
+using Game.UI.Data;
+using UnityEngine;
     using UnityEngine.Tilemaps;
 
     public class Spawner : MonoBehaviour
@@ -9,7 +10,8 @@
         
         [Header("Enemy Waves")]
         [SerializeField] List<EnemyWaveSO> enemyWaves;
-        Tilemap levelTilemap;
+        [SerializeField] Transform mapContainer;
+        [SerializeField] Tilemap levelTilemap;
         LevelSO levelSO;
         List<Vector3> spawnPositions = new List<Vector3>();
 
@@ -20,8 +22,10 @@
 
         void Start()
         {
-            levelSO = CoverFlow.instance.GetLevelSO();
-            levelTilemap = GameObject.FindWithTag("MainTilemap").GetComponent<Tilemap>();
+            levelSO = GameplayLaunchContext.MapConfig;
+            // levelTilemap = GameObject.FindWithTag("MainTilemap").GetComponent<Tilemap>();
+            Instantiate(levelSO.tilemapPrefab, mapContainer);
+            InitializeEnemyWaves(levelSO.enemyWaves);
             InitializeSpawnPositions();
             StartCoroutine(SpawnEnemyWaves());
         }

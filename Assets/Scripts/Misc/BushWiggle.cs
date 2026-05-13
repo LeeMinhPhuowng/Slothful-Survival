@@ -1,24 +1,35 @@
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using static DG.Tweening.DOTween;
+
 public class BushWiggle : MonoBehaviour
 {
-    void Start()
+    private List<Tween> _tweens = new();
+
+    private void Start()
     {
         foreach (Transform t in transform)
         {
             Vector3 startPos = t.position;
             float duration = Random.Range(1f, 2f);
 
-            t.DOMoveX(startPos.x + 0.1f, duration)
-             .SetEase(Ease.InOutSine)
-             .SetLoops(-1, LoopType.Yoyo);
+            Tween wiggle = t.DOMoveX(startPos.x + 0.1f, duration)
+                .SetEase(Ease.InOutSine)
+                .SetLoops(-1, LoopType.Yoyo);
+
+            _tweens.Add(wiggle);
         }
 
     }
 
-    void Update()
+    private void OnDestroy()
     {
-        
+        foreach (Tween tween in _tweens)
+        {
+            tween?.Kill();
+        }
+
+        _tweens.Clear();
     }
 }

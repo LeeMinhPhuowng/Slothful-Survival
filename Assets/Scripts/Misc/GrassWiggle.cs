@@ -1,24 +1,41 @@
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-using static DG.Tweening.DOTween;
+
 public class GrassWiggle : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private readonly List<Tween> _tweens = new();
+
     void Start()
     {
-        foreach(Transform t in transform)
-        {
-            t.DOLocalRotate(new Vector3(0, 0, Random.Range(2.5f, 5f)), Random.Range(1f, 2.5f)).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
+        _tweens.Add(
             transform.DOMoveX(transform.position.x + 0.1f, 1.2f)
-            .SetEase(Ease.InOutSine)
-            .SetLoops(-1, LoopType.Yoyo);
+                .SetEase(Ease.InOutSine)
+                .SetLoops(-1, LoopType.Yoyo)
+                .SetLink(gameObject)
+        );
 
+        foreach (Transform t in transform)
+        {
+            _tweens.Add(
+                t.DOLocalRotate(
+                        new Vector3(0, 0, Random.Range(2.5f, 5f)),
+                        Random.Range(1f, 2.5f)
+                    )
+                    .SetEase(Ease.InOutSine)
+                    .SetLoops(-1, LoopType.Yoyo)
+                    .SetLink(gameObject)
+            );
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        foreach (Tween tween in _tweens)
+        {
+            tween?.Kill();
+        }
+
+        _tweens.Clear();
     }
 }

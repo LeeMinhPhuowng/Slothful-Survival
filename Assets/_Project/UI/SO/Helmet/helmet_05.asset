@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17fad055e93a394bbe82b00874f22af, type: 3}
+  m_Name: helmet_05
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Core.EquipmentItemSO
+  ItemId: helmet_05
+  DisplayName: Golden Helm
+  Description: A majestic golden helmet.
+  Rarity: 4
+  Icon: {fileID: -1625229306170056826, guid: 76626ae104e64a2418f05ad1e3b6ec36, type: 3}
+  Slot: 1
+  Level: 1
+  IsUnlocked: 0
+  BuyPrice: 950
+  SellPrice: 475
+  Armor: 28
+  Damage: 5
+  MaxHealth: 40
+  MoveSpeed: 0
