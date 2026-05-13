@@ -32,7 +32,7 @@ public class PlayerInfo : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        healthBarValue.SetHealth(GetCurrentHealthPercentage());
+        //healthBarValue.SetHealth(GetCurrentHealthPercentage());
     }
     
     public float MaxHealth
@@ -107,14 +107,14 @@ public class PlayerInfo : MonoBehaviour, IDamageable
         MoveSpeed = characterInfo.moveSpeed;
         PickupRange = basePickupRange;
         CurrentLevel = 0;
-        healthBarValue = HealthBarCanvas.Instance.gameObject.GetComponentInChildren<HealthBarValue>();
+        //healthBarValue = HealthBarCanvas.Instance.gameObject.GetComponentInChildren<HealthBarValue>();
     }
 
     public void TakeDamage(int amount)
     {
         CurrentHealth -= amount;
         TriggerTakeDamageVFX();
-        healthBarValue.SetHealth(GetCurrentHealthPercentage());
+        //healthBarValue.SetHealth(GetCurrentHealthPercentage());
         if(CurrentHealth <= 0)
         {
             Die();
@@ -123,6 +123,12 @@ public class PlayerInfo : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        StartCoroutine(DieCoroutine());
+    }
+
+    private IEnumerator DieCoroutine()
+    {
+        yield return new WaitForEndOfFrame(); // Wait to prevent URP Light2D MissingReferenceException
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

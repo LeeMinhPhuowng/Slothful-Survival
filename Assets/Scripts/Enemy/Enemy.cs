@@ -1,4 +1,4 @@
-using Pathfinding;
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -18,13 +18,7 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float vfxExistTime;
     #endregion
 
-    //AI Pathfinding
-    #region AI Pathfinding
-    public AIPath AIPath { get; set; }
-    public AIDestinationSetter DestinationSetter { get; set; }
-    public Seeker Seeker { get; set; }
-    public Transform TargetTransform { get; set; }
-    #endregion
+
 
     //Properties
     public float MaxHealth { get; set; } //Not use
@@ -38,23 +32,28 @@ public class Enemy : MonoBehaviour, IDamageable
     private int attackTrigger = Animator.StringToHash("Attack");
 
     private bool isAttacking = false;
+    private bool canMove = true;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        AIPath = GetComponent<AIPath>();
-        DestinationSetter = GetComponent<AIDestinationSetter>();
-        Seeker = GetComponent<Seeker>();
-        
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        canMove = true;
+        
+        if (rb != null)
+        {
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.gravityScale = 0f;
+            rb.freezeRotation = true;
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        }
     }
 
     private void OnEnable()
     {
         InitializeFromStat();
-        DestinationSetter.target = PlayerInfo.instance.transform;
         Ticker.OnTickAction += Tick;
         GameManager.EnemyCount++;
     }
@@ -69,7 +68,6 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         CurrentHealth = info.maxHealth;
         MoveSpeed = info.moveSpeed;
-        AIPath.maxSpeed = MoveSpeed;
     }
 
     public void TakeDamage(int damage)
@@ -98,14 +96,25 @@ public class Enemy : MonoBehaviour, IDamageable
         
     }
 
+    private void FixedUpdate()
+    {
+        if (!canMove || isAttacking || PlayerInfo.instance == null) return;
+
+        Vector2 direction = (PlayerInfo.instance.transform.position - transform.position).normalized;
+        rb.MovePosition(rb.position + direction * (MoveSpeed * Time.fixedDeltaTime));
+    }
+
     //runs every 0.2 secs
     private void Tick()
     {
-        if (AIPath.desiredVelocity.x >= 0.01f)
+        if (PlayerInfo.instance == null) return;
+
+        float dirX = PlayerInfo.instance.transform.position.x - transform.position.x;
+        if (dirX >= 0.01f)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
-        else if (AIPath.desiredVelocity.x <= -0.01f)
+        else if (dirX <= -0.01f)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
@@ -145,14 +154,14 @@ public class Enemy : MonoBehaviour, IDamageable
     IEnumerator EnemyAttack()
     {
         isAttacking = true;
-        AIPath.canMove = false;
+        canMove = false;
         animator.SetTrigger(attackTrigger);
         yield return new WaitForSeconds(0.8f);
         PlayerInfo.instance.TakeDamage(info.damage);
         Debug.Log(this.gameObject.name + "Attack!");
         yield return new WaitForSeconds(info.attackCooldown);
         isAttacking = false;
-        AIPath.canMove = true;
+        canMove = true;
     }
 
     #endregion

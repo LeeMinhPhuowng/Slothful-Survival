@@ -132,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Twilight
       objectReference: {fileID: 0}
+    - target: {fileID: 6843897308620803910, guid: 80924cd875626f2438d804564dfddc53,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9115308553657055738, guid: 80924cd875626f2438d804564dfddc53,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -200,6 +205,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Devastator
       objectReference: {fileID: 0}
+    - target: {fileID: 6843897308620803910, guid: 7990dec2f221d0d42a1f7404020438e4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9115308553657055738, guid: 7990dec2f221d0d42a1f7404020438e4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -267,6 +277,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Soulkeeper
+      objectReference: {fileID: 0}
+    - target: {fileID: 6843897308620803910, guid: c9651c112be260f4c873200739d8492c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8028924506171009294, guid: c9651c112be260f4c873200739d8492c,
         type: 3}
@@ -401,6 +416,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LunarBlade (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8707204994675441862, guid: c9bfb2965c7d2324b9fea8097afb933a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -468,6 +488,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShootingStar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707204994675441862, guid: 02927a3ff3e9e304b8e031a47c352f66,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -627,6 +652,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket
       objectReference: {fileID: 0}
+    - target: {fileID: 8707204994675441862, guid: 43ccc5084b5f5a844a5215733354dab2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -644,6 +674,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SlashVFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867240962642339026, guid: 280e15f8611366a4081639e123bacc76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8359669618587088813, guid: 280e15f8611366a4081639e123bacc76,
         type: 3}
@@ -763,6 +798,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LunarBlade
       objectReference: {fileID: 0}
+    - target: {fileID: 8707204994675441862, guid: c9bfb2965c7d2324b9fea8097afb933a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -830,6 +870,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Guardian
+      objectReference: {fileID: 0}
+    - target: {fileID: 3442482019999103755, guid: fda596683b208fa4cb1441ff71eb0803,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -899,6 +944,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DarkBall
       objectReference: {fileID: 0}
+    - target: {fileID: 8707204994675441862, guid: 37c23eb2e1d63a9408ec60bf8429e062,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -916,6 +966,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806929588903977557, guid: a0a2225a3bb7274499ef1bfe9b3ef7b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8229390951756876513, guid: a0a2225a3bb7274499ef1bfe9b3ef7b0,
         type: 3}
@@ -1110,6 +1165,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bloodmoon
       objectReference: {fileID: 0}
+    - target: {fileID: 3442482019999103755, guid: ba1546e8563e3124e8f9abcac1fb4c60,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1181,7 +1241,7 @@ PrefabInstance:
     - target: {fileID: 5805006633134853169, guid: 21139d87966780e469c854b8cc827729,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1251,6 +1311,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skyfall
       objectReference: {fileID: 0}
+    - target: {fileID: 3442482019999103755, guid: 828eb33131615824aa943c702894da4b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1318,6 +1383,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocket (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707204994675441862, guid: 43ccc5084b5f5a844a5215733354dab2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1387,6 +1457,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dark
       objectReference: {fileID: 0}
+    - target: {fileID: 4300512972853675893, guid: 5d61600a60e9030419091cdc0e5e266c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1404,6 +1479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Blackhole
+      objectReference: {fileID: 0}
+    - target: {fileID: 6843897308620803910, guid: 6ae7020c6f2d03d4c90d395c5f6bd6de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9115308553657055738, guid: 6ae7020c6f2d03d4c90d395c5f6bd6de,
         type: 3}
@@ -1599,6 +1679,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PB-28A
       objectReference: {fileID: 0}
+    - target: {fileID: 6843897308620803910, guid: e2c088bc6d4b5bc4daa0c261169b52ef,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9115308553657055738, guid: e2c088bc6d4b5bc4daa0c261169b52ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1666,6 +1751,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trio o' Beginning
+      objectReference: {fileID: 0}
+    - target: {fileID: 6843897308620803910, guid: fd0d0f1519ced324dadfefa3e3811072,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9115308553657055738, guid: fd0d0f1519ced324dadfefa3e3811072,
         type: 3}
@@ -1738,7 +1828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1447682041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,6 +1861,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1650875609
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2143567314319468478, guid: 199d2bf2d878bf445bc0a6a5477da836,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143567314319468478, guid: 199d2bf2d878bf445bc0a6a5477da836,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143567314319468478, guid: 199d2bf2d878bf445bc0a6a5477da836,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143567314319468478, guid: 199d2bf2d878bf445bc0a6a5477da836,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143567314319468478, guid: 199d2bf2d878bf445bc0a6a5477da836,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143567314319468478, guid: 199d2bf2d878bf445bc0a6a5477da836,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143567314319468478, guid: 199d2bf2d878bf445bc0a6a5477da836,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143567314319468478, guid: 199d2bf2d878bf445bc0a6a5477da836,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143567314319468478, guid: 199d2bf2d878bf445bc0a6a5477da836,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143567314319468478, guid: 199d2bf2d878bf445bc0a6a5477da836,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874458027194679604, guid: 199d2bf2d878bf445bc0a6a5477da836,
+        type: 3}
+      propertyPath: m_Name
+      value: SlimeBossTrans
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040753227262486259, guid: 199d2bf2d878bf445bc0a6a5477da836,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 199d2bf2d878bf445bc0a6a5477da836, type: 3}
 --- !u!1001 &1671262584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1834,6 +1997,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow
       objectReference: {fileID: 0}
+    - target: {fileID: 4165604486204965757, guid: e5e67ec2da45c414cad7253f78b8dac8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1851,6 +2019,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 1012636808584174642, guid: 075093ead4f8d3045bb26d36048c5f03,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1184158281631200390, guid: 075093ead4f8d3045bb26d36048c5f03,
         type: 3}
@@ -2036,7 +2209,6 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
-  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -2044,6 +2216,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1001 &1912473968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2056,6 +2229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BloodSlash
+      objectReference: {fileID: 0}
+    - target: {fileID: 91671120886120015, guid: fcfb0b7392c01324aa73824829021d53,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1758691547792338224, guid: fcfb0b7392c01324aa73824829021d53,
         type: 3}
@@ -2149,5 +2327,6 @@ SceneRoots:
   - {fileID: 369868367}
   - {fileID: 1217768872}
   - {fileID: 628635817}
+  - {fileID: 1650875609}
   - {fileID: 1726988059}
   - {fileID: 1912473968}

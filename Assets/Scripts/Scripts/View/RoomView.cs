@@ -1,0 +1,87 @@
+using UnityEngine;
+using UnityEngine.Tilemaps;
+
+public class RoomView
+{
+    public static void Draw(RoomEntity room, Tilemap groundTilemap, Tilemap wallTilemap)
+    {
+        var config = room.Config;
+        if (config == null) return;
+
+        int size = config.RoomSize;
+        Vector2Int gridPos = room.GetPosition();
+        
+        // Offset so rooms don't overlap. Each room takes size x size grid cells.
+        int startX = gridPos.x * size;
+        int startY = gridPos.y * size;
+        int doorCenter = size / 2;
+
+        for (int x = 0; x < size; x++)
+        {
+            for (int y = 0; y < size; y++)
+            {
+                Vector3Int tilePos = new Vector3Int(startX + x, startY + y, 0);
+
+                bool isWall = (x == 0 || x == size - 1 || y == 0 || y == size - 1);
+                
+                // Carve doors if there is a connection in that direction
+                if (isWall)
+                {
+                    if (x == doorCenter && y == size - 1 && room.GetNeighbours().ContainsKey(Vector2Int.up)) isWall = false;
+                    if (x == doorCenter && y == 0 && room.GetNeighbours().ContainsKey(Vector2Int.down)) isWall = false;
+                    if (y == doorCenter && x == size - 1 && room.GetNeighbours().ContainsKey(Vector2Int.right)) isWall = false;
+                    if (y == doorCenter && x == 0 && room.GetNeighbours().ContainsKey(Vector2Int.left)) isWall = false;
+                }
+
+                if (isWall)
+                {
+                    if (wallTilemap != null)
+                    {
+                        Tile wallTile = null;
+
+                        // Corners
+                        if (x == 0 && y == 0) wallTile = config.BottomLeftCornerWall;
+                        else if (x == 0 && y == size - 1) wallTile = config.UpLeftCornerWall;
+                        else if (x == size - 1 && y == 0) wallTile = config.BottomRightCornerWall;
+                        else if (x == size - 1 && y == size - 1) wallTile = config.UpRightCornerWall;
+                        // Edges
+                        else if (x == 0) wallTile = config.LeftWall;
+                        else if (x == size - 1) wallTile = config.RightWall;
+                        else if (y == 0) wallTile = config.BottomWall;
+                        else if (y == size - 1) wallTile = config.TopWall;
+
+                        if (wallTile != null)
+                        {
+                            wallTilemap.SetTile(tilePos, wallTile);
+                        }
+                    }
+                }
+                else
+                {
+                    if (groundTilemap != null && config.Ground != null)
+                    {
+                        groundTilemap.SetTile(tilePos, config.Ground);
+                        
+                        // Tint the ground color based on room type
+                        Color roomColor = Color.white;
+                        switch (room.GetRoomType())
+                        {
+                            case RoomType.Boss: roomColor = new Color(1f, 0.7f, 0.7f); break; // Light Red
+                            case RoomType.Chest: roomColor = new Color(1f, 1f, 0.7f); break; // Light Yellow
+                            case RoomType.Shop: roomColor = new Color(0.7f, 1f, 0.7f); break; // Light Green
+                        }
+                        
+                        // Start room is Light Cyan
+                        if (room.GetPosition() == Vector2Int.zero) roomColor = new Color(0.7f, 1f, 1f); 
+                        
+                        if (roomColor != Color.white)
+                        {
+                            groundTilemap.SetTileFlags(tilePos, TileFlags.None);
+                            groundTilemap.SetColor(tilePos, roomColor);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
