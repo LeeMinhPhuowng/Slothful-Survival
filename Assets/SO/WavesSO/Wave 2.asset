@@ -17,4 +17,4 @@ MonoBehaviour:
     amount: 15
   - type: 1
     amount: 10
-  timeTillNextWave: 40
+  timeTillNextWave: 30

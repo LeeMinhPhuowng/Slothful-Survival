@@ -36,8 +36,12 @@ Material:
   m_Name: Samples_Curtain
   m_Shader: {fileID: -6465566751694194690, guid: 137a9d0b49032c544abaff345d2c4f5c,
     type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 137a9d0b49032c544abaff345d2c4f5c,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _DISABLE_SSR_TRANSPARENT

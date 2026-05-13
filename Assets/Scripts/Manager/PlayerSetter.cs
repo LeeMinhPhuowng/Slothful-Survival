@@ -107,4 +107,12 @@ public class PlayerSetter : MonoBehaviour
     {
         SpawnPlayer();
     }
+
+    public void SetSpawnPosition(Vector3 position)
+    {
+        if (spawnPoint != null)
+        {
+            spawnPoint.position = position;
+        }
+    }
 }

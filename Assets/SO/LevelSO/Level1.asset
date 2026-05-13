@@ -13,32 +13,7 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   levelName: Forest
-  tilemapPrefab: {fileID: 5805006633134853169, guid: 21139d87966780e469c854b8cc827729,
-    type: 3}
+  mapConfig: {fileID: 11400000, guid: f11f80116a7b14b4197b4ddfd4b79110, type: 2}
   enemyWaves:
   - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
-  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
-  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
-  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
-  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
-  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
-  - {fileID: 11400000, guid: 2fad102c1a6263149bce0b64c4bd19b6, type: 2}
-  - {fileID: 11400000, guid: 0e8b7d5676b71fd4fbf63a4da4ed16c7, type: 2}
   levelTime: 300
-  mapMaxX: 48
-  mapMaxY: 47
-  mapMinX: -49
-  mapMinY: -49
