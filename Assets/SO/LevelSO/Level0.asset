@@ -13,12 +13,7 @@ MonoBehaviour:
   m_Name: Level0
   m_EditorClassIdentifier: 
   levelName: Forest
-  tilemapPrefab: {fileID: 5805006633134853169, guid: 21139d87966780e469c854b8cc827729,
-    type: 3}
+  mapConfig: {fileID: 11400000, guid: f11f80116a7b14b4197b4ddfd4b79110, type: 2}
   enemyWaves:
   - {fileID: 11400000, guid: a313a05717b3f8147876847789b173cb, type: 2}
   levelTime: 300
-  mapMaxX: 48
-  mapMaxY: 47
-  mapMinX: -49
-  mapMinY: -49

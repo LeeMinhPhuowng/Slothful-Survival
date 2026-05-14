@@ -197,6 +197,7 @@ namespace Game.UI.Service
             }
 
             _enemyKilled++;
+            Debug.Log($"{_targetEnemyKills} > {_targetEnemyKills}");
             if (_targetEnemyKills > 0 && _enemyKilled >= _targetEnemyKills)
             {
                 CompleteRun(true);
@@ -357,7 +358,7 @@ namespace Game.UI.Service
                 .Where(wave => wave?.waveInfos != null)
                 .SelectMany(wave => wave.waveInfos)
                 .Where(info => info != null)
-                .Sum(info => Math.Max(0, info.amount));
+                .Sum(info => Math.Max(0, info.amount)) * (level.mapConfig.NumberOfRooms - 1);
         }
     }
 }

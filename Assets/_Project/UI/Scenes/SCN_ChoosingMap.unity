@@ -1133,6 +1133,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1408,7 +1409,7 @@ MonoBehaviour:
   maps:
   - MapId: level_1
     DisplayName: Level 1
-    Config: {fileID: 11400000, guid: 3dca51af962c3e240a27df8f80fe1df5, type: 2}
+    Config: {fileID: 11400000, guid: 3833949a5206ecf45ad6e67253ec6b94, type: 2}
     IsUnlocked: 1
     IsCompleted: 0
   - MapId: level_2
@@ -1868,27 +1869,27 @@ PrefabInstance:
     - target: {fileID: 6496152750576390418, guid: 35032b4bd07c71b4bb2dce652895a61c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6496152750576390418, guid: 35032b4bd07c71b4bb2dce652895a61c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6496152750576390418, guid: 35032b4bd07c71b4bb2dce652895a61c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6496152750576390418, guid: 35032b4bd07c71b4bb2dce652895a61c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1117.7415
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6496152750576390418, guid: 35032b4bd07c71b4bb2dce652895a61c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 656.1682
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6496152750576390418, guid: 35032b4bd07c71b4bb2dce652895a61c,
         type: 3}

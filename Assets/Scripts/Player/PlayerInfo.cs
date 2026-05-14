@@ -159,21 +159,17 @@ public class PlayerInfo : MonoBehaviour, IDamageable
     }
 
     public void Die()
-    { 
-        StartCoroutine(DieCoroutine());
-    }
-
-    private IEnumerator DieCoroutine()
     {
-        yield return new WaitForEndOfFrame(); // Wait to prevent URP Light2D MissingReferenceException
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        if (!isDead)
+        if (isDead)
         {
-            isDead = true;
-            GameplayRunSignals.ReportPlayerDied();
-        }        
+            return;
+        }
+
+        isDead = true;
+        GameplayRunSignals.ReportPlayerDied();
     }
+
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
