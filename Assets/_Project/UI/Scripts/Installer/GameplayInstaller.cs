@@ -1,5 +1,6 @@
 using System;
 using Game.UI.Presentation.Profile;
+using Game.UI.Presentation.Settings;
 using Game.UI.Service;
 using Reflex.Core;
 using Reflex.Enums;
@@ -35,16 +36,53 @@ namespace Game.UI.Presentation.Gameplay
                 ReflexResolution.Lazy);
 
             containerBuilder.RegisterFactory(
-                container => new GameplayViewModel(
+                container => new GameRunService(
                     container.Resolve<IPanelService>(),
-                    container.Resolve<ISceneFlowService>()),
+                    container.Resolve<ISceneFlowService>(),
+                    container.Resolve<IWalletService>(),
+                    container.Resolve<IMapSelectionService>(),
+                    container.Resolve<IPlayerProgressService>()),
+                new[] { typeof(GameRunService), typeof(IGameRunService) },
+                Lifetime.Scoped,
+                ReflexResolution.Lazy);
+
+            containerBuilder.RegisterFactory(
+                container => new GameplayViewModel(container.Resolve<IGameRunService>()),
                 new[] { typeof(GameplayViewModel) },
+                Lifetime.Scoped,
+                ReflexResolution.Lazy);
+
+            containerBuilder.RegisterFactory(
+                container => new PausePanelViewModel(
+                    container.Resolve<IGameRunService>(),
+                    container.Resolve<IPanelService>()),
+                new[] { typeof(PausePanelViewModel) },
+                Lifetime.Scoped,
+                ReflexResolution.Lazy);
+
+            containerBuilder.RegisterFactory(
+                container => new RevivePanelViewModel(container.Resolve<IGameRunService>()),
+                new[] { typeof(RevivePanelViewModel) },
+                Lifetime.Scoped,
+                ReflexResolution.Lazy);
+
+            containerBuilder.RegisterFactory(
+                container => new RunResultPanelViewModel(container.Resolve<IGameRunService>()),
+                new[] { typeof(RunResultPanelViewModel) },
                 Lifetime.Scoped,
                 ReflexResolution.Lazy);
 
             containerBuilder.RegisterFactory(
                 container => new ConfirmationDialogViewModel(container.Resolve<IConfirmationDialogService>()),
                 new[] { typeof(ConfirmationDialogViewModel) },
+                Lifetime.Scoped,
+                ReflexResolution.Lazy);
+
+            containerBuilder.RegisterFactory(
+                container => new SettingsPanelViewModel(
+                    container.Resolve<IPanelService>(),
+                    container.Resolve<ISettingsService>()),
+                new[] { typeof(SettingsPanelViewModel) },
                 Lifetime.Scoped,
                 ReflexResolution.Lazy);
         }

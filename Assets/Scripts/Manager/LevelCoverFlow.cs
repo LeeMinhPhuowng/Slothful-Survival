@@ -22,6 +22,9 @@ public class LevelCoverFlow : MonoBehaviour
     [Header("Level Name")]
     [SerializeField] private TextMeshProUGUI levelName;
 
+    [Header("Actions")]
+    [SerializeField] private Button playButton;
+
     private readonly List<RectTransform> items = new();
     private RectTransform content;
     private int currentItemIndex = 0;
@@ -154,13 +157,19 @@ public class LevelCoverFlow : MonoBehaviour
         if (map == null)
         {
             Debug.LogWarning($"[LevelCoverFlow] Item index {currentIndex} is out of Maps range.");
-            SetLevelName("Unknown Level");
+            return;
+        }
+
+        if (!map.IsUnlocked)
+        {
+            SetLevelName("Locked Level");
+            SetPlayButtonActive(false);
             return;
         }
 
         _mapSelectionService.Select(map.MapId);
-        MapModel currentMap = _mapSelectionService.GetSelectedMap();
-        SetLevelName(currentMap != null && currentMap.IsUnlocked ? currentMap.DisplayName : "Locked Level");
+        SetLevelName(map.DisplayName);
+        SetPlayButtonActive(true);
     }
 
     private MapModel GetMapByIndex(int index)
@@ -178,6 +187,14 @@ public class LevelCoverFlow : MonoBehaviour
         if (levelName != null)
         {
             levelName.text = text;
+        }
+    }
+
+    private void SetPlayButtonActive(bool isActive)
+    {
+        if (playButton != null)
+        {
+            playButton.interactable = isActive;
         }
     }
 

@@ -89,7 +89,8 @@ namespace Game.UI.Service
 
         public UniTask<SceneLoadResult> ReloadGameplayAsync(CancellationToken cancellationToken = default)
         {
-            if (!LastGameplayLoadRequest.HasValue)
+            GameplayLoadRequest? previousRequest = LastGameplayLoadRequest ?? GameplayLaunchContext.CurrentRequest;
+            if (!previousRequest.HasValue)
             {
                 return UniTask.FromResult(SceneLoadResult.Failed(
                     SceneId.Gameplay,
@@ -97,7 +98,7 @@ namespace Game.UI.Service
                     "No previous gameplay load request is available."));
             }
 
-            GameplayLoadRequest previous = LastGameplayLoadRequest.Value;
+            GameplayLoadRequest previous = previousRequest.Value;
             GameplayLoadRequest retryRequest = new(previous.MapId, previous.CharacterId, true);
             return LoadGameplayAsync(retryRequest, cancellationToken);
         }

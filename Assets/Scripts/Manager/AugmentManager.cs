@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -6,12 +7,16 @@ public class AugmentManager : MonoBehaviour
 {
     [SerializeField] GameObject canvas;
     [SerializeField] List<GameObject> options;
+    [SerializeField, Min(0f)] private float showAnimationDuration = 1f;
+    [SerializeField, Range(0.1f, 1f)] private float showStartScale = 0.8f;
 
     public static AugmentManager Instance{get; private set;}
 
     List<AugmentInfoSO> augmentInfos = new List<AugmentInfoSO>();
     public List<BuffInfoSO> buffInfos;
     public List<AddInfoSO> addInfos;
+    private Tween showTween;
+    private Vector3 baseCanvasScale;
 
     private void Awake()
     {
@@ -24,6 +29,7 @@ public class AugmentManager : MonoBehaviour
     }
     private void Start()
     {    
+        baseCanvasScale = canvas.transform.localScale;
         canvas.gameObject.SetActive(false);
     }
 
@@ -58,6 +64,7 @@ public class AugmentManager : MonoBehaviour
         SetUpAugments();
         GenerateAugments();
         canvas.gameObject.SetActive(true);
+        PlayShowAnimation();
     }
 
     private void GenerateAugments()
@@ -88,7 +95,23 @@ public class AugmentManager : MonoBehaviour
 
     public void OnAugmentChosen()
     {
+        showTween?.Kill();
         Time.timeScale = 1f;
         canvas.SetActive(false);
+    }
+
+    private void PlayShowAnimation()
+    {
+        showTween?.Kill();
+        canvas.transform.localScale = baseCanvasScale * showStartScale;
+        showTween = canvas.transform
+            .DOScale(baseCanvasScale, showAnimationDuration)
+            .SetEase(Ease.OutBack)
+            .SetUpdate(true);
+    }
+
+    private void OnDestroy()
+    {
+        showTween?.Kill();
     }
 }

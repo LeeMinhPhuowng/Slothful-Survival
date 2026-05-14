@@ -1,24 +1,19 @@
-using Cysharp.Threading.Tasks;
-using Game.UI.Data;
 using Game.UI.Service;
-using UnityEngine;
 
 namespace Game.UI.Presentation.Gameplay
 {
     public sealed class GameplayViewModel
     {
-        private readonly IPanelService _panelService;
-        private readonly ISceneFlowService _sceneFlowService;
+        private readonly IGameRunService _gameRunService;
 
-        public GameplayViewModel(IPanelService panelService, ISceneFlowService sceneFlowService)
+        public GameplayViewModel(IGameRunService gameRunService)
         {
-            _panelService = panelService;
-            _sceneFlowService = sceneFlowService;
+            _gameRunService = gameRunService;
         }
 
         public void OpenPause()
         {
-            _panelService.Open(PanelId.Pause);
+            _gameRunService.Pause();
         }
     }
 }

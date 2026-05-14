@@ -1,5 +1,6 @@
 using System;
 using Game.UI.Presentation.Profile;
+using Game.UI.Presentation.Settings;
 using Game.UI.Service;
 using Reflex.Core;
 using Reflex.Enums;
@@ -73,6 +74,14 @@ namespace Game.UI.Presentation.MainMenu
             containerBuilder.RegisterFactory(
                 container => new ConfirmationDialogViewModel(container.Resolve<IConfirmationDialogService>()),
                 new[] { typeof(ConfirmationDialogViewModel) },
+                Lifetime.Scoped,
+                ReflexResolution.Lazy);
+
+            containerBuilder.RegisterFactory(
+                container => new SettingsPanelViewModel(
+                    container.Resolve<IPanelService>(),
+                    container.Resolve<ISettingsService>()),
+                new[] { typeof(SettingsPanelViewModel) },
                 Lifetime.Scoped,
                 ReflexResolution.Lazy);
         }

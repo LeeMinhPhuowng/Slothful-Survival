@@ -1872,6 +1872,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d31b776c86dc3f42b2d157c8b62e34b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Presentation.Profile.EquipmentItemDetailPanelView
+  animatedRoot: {fileID: 0}
+  animateOnShow: 0
+  showAnimationDuration: 1
+  showStartScale: 0.9
   closeButton: {fileID: 5089600606563312835}
   rarityBackgroundImage: {fileID: 1945583104441183796}
   iconImage: {fileID: 7323460495443751556}

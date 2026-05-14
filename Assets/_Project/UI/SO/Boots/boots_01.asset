@@ -25,4 +25,4 @@ MonoBehaviour:
   Armor: 3
   Damage: 0
   MaxHealth: 5
-  MoveSpeed: 100
+  MoveSpeed: 3

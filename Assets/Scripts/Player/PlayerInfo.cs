@@ -22,6 +22,7 @@ public class PlayerInfo : MonoBehaviour, IDamageable
     private SpriteRenderer spriteRenderer;
     private MaterialPropertyBlock mpb;
     private Coroutine vfxRoutine;
+    private bool isDead;
 
     [SerializeField] float vfxExistTime;
 
@@ -122,6 +123,7 @@ public class PlayerInfo : MonoBehaviour, IDamageable
     {
         MaxHealth = characterInfo.maxHealth;
         CurrentHealth = MaxHealth;
+        isDead = false;
         MoveSpeed = characterInfo.moveSpeed;
         PickupRange = basePickupRange;
         CurrentLevel = 0;
@@ -130,6 +132,11 @@ public class PlayerInfo : MonoBehaviour, IDamageable
 
     public void TakeDamage(int amount)
     {
+        if (isDead)
+        {
+            return;
+        }
+
         CurrentHealth -= amount;
         TriggerTakeDamageVFX();
         healthBarValue.SetHealth(GetCurrentHealthPercentage());
@@ -141,7 +148,23 @@ public class PlayerInfo : MonoBehaviour, IDamageable
 
     public void Die()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (isDead)
+        {
+            return;
+        }
+
+        isDead = true;
+        GameplayRunSignals.ReportPlayerDied();
+    }
+
+    public void Revive(float healthPercent)
+    {
+        isDead = false;
+        CurrentHealth = MaxHealth * Mathf.Clamp01(healthPercent);
+        if (healthBarValue != null)
+        {
+            healthBarValue.SetHealth(GetCurrentHealthPercentage());
+        }
     }
 
     //TakeDamage Effect

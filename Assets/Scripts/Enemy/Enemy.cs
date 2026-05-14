@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem.XR.Haptics;
 using static UnityEngine.Rendering.DebugUI;
+using Game.UI.Data;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
@@ -38,6 +39,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private int attackTrigger = Animator.StringToHash("Attack");
 
     private bool isAttacking = false;
+    private bool isDead;
 
     private void Awake()
     {
@@ -53,6 +55,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void OnEnable()
     {
+        isDead = false;
         InitializeFromStat();
         DestinationSetter.target = PlayerInfo.instance.transform;
         Ticker.OnTickAction += Tick;
@@ -74,6 +77,11 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
+        if (isDead)
+        {
+            return;
+        }
+
         TriggerTakeDamageVFX();
         CurrentHealth -= damage;
         if (CurrentHealth <= 0)
@@ -85,6 +93,13 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        if (isDead)
+        {
+            return;
+        }
+
+        isDead = true;
+        GameplayRunSignals.ReportEnemyKilled();
         ObjectPool.instance.BackToPool(this.gameObject, info.type);
 
         //Sinh exp

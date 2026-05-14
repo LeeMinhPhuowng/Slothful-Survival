@@ -384,6 +384,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2892da61941a6d34e80e53202f8dc4b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Presentation.Profile.ConfirmationDialogView
+  animatedRoot: {fileID: 6643954979597764392}
+  animateOnShow: 1
+  showAnimationDuration: 1
+  showStartScale: 0.8
   titleText: {fileID: 0}
   messageText: {fileID: 8680065624805825737}
   confirmButton: {fileID: 3098938606809920977}

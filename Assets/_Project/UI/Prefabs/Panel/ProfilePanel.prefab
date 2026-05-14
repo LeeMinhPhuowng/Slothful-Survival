@@ -935,7 +935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -93, y: -75}
+  m_AnchoredPosition: {x: -100, y: -95}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7331413542891166363
@@ -966,7 +966,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1414752435, guid: e66bbf0f2c8067347b8db753a543042d, type: 3}
+  m_Sprite: {fileID: -5131051800593054222, guid: 1cc03544ebc60f044bdb9d155680bfc3,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2776,7 +2777,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3242955541321283345
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2863,6 +2864,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0559848d4b8e22d46ab138bb4190bff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Presentation.Profile.ProfilePanelView
+  animatedRoot: {fileID: 3242955541321283345}
+  animateOnShow: 1
+  showAnimationDuration: 1
+  showStartScale: 0.8
   closeButton: {fileID: 3342446749674853897}
   previousCharacterButton: {fileID: 7361926340891184402}
   nextCharacterButton: {fileID: 1247932830574232737}
@@ -6680,7 +6685,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -610.1914}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &3612732663561003320
 MonoBehaviour:

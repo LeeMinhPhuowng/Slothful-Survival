@@ -111,6 +111,12 @@ namespace Game.UI.Installer
                 ReflexResolution.Lazy);
 
             containerBuilder.RegisterFactory(
+                _ => new SettingsService(),
+                new[] { typeof(SettingsService), typeof(ISettingsService) },
+                Lifetime.Singleton,
+                ReflexResolution.Lazy);
+
+            containerBuilder.RegisterFactory(
                 container => new SceneFlowService(
                     container.Resolve<ISceneNameRegistry>(),
                     container.Resolve<IGameCatalog>(),

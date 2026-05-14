@@ -12,13 +12,10 @@ public class PlayerEXP : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-
-    private void Start()
-    {
         levelManager = PlayerLevelManager.Instance;
         playerInfo = GetComponent<PlayerInfo>();
     }
+
     private void Update()
     {
         UpdatePlayerLevel();
