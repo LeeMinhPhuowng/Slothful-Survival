@@ -16,4 +16,5 @@ MonoBehaviour:
   attackCooldown: 2
   attackRange: 10
   ID: 26
+  icon: {fileID: -4790465735491655760, guid: fad8a41df48dd2841ba4bf478d4d4d9f, type: 3}
   nextAugmentInfo: []

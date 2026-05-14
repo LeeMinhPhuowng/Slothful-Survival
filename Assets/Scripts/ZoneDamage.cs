@@ -42,10 +42,29 @@ public class ZoneDamage : MonoBehaviour
         {
             yield return new WaitForSeconds(timeBetweenAttacks);
 
-            foreach (Enemy enemy in new List<Enemy>(enemies))
+            if (info == null) continue;
+
+            // Use a list to store enemies that need to be removed
+            List<Enemy> toRemove = new List<Enemy>();
+
+            foreach (Enemy enemy in enemies)
             {
-                enemy.TakeDamage(info.attackDamage);
-            }    
+                // Check if enemy still exists and is active
+                if (enemy != null && enemy.gameObject.activeInHierarchy)
+                {
+                    enemy.TakeDamage(info.attackDamage);
+                }
+                else
+                {
+                    toRemove.Add(enemy);
+                }
+            }
+
+            // Clean up the list
+            foreach (Enemy remove in toRemove)
+            {
+                enemies.Remove(remove);
+            }
         }
     }
 

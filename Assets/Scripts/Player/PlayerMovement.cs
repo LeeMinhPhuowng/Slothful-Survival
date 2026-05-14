@@ -15,6 +15,15 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         joystick = FindObjectOfType<FloatingJoystick>();
+        
+        // Force physics settings to prevent walking through walls
+        if (rb != null)
+        {
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.gravityScale = 0f;
+            rb.freezeRotation = true;
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        }
     }
     void FixedUpdate()
     {

@@ -6,11 +6,7 @@ using UnityEngine;
 public class LevelSO : ScriptableObject
 {
     public string levelName;
-    public GameObject tilemapPrefab;
+    public MapConfigSO mapConfig;
     public List<EnemyWaveSO> enemyWaves = new List<EnemyWaveSO>();
     public float levelTime;
-    public int mapMaxX;
-    public int mapMaxY;
-    public int mapMinX;
-    public int mapMinY;
 }

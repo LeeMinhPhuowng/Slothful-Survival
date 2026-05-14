@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d6aab0630be4af4f9aeec7f6cfefe23, type: 3}
+  m_Name: Default Room
+  m_EditorClassIdentifier: 
+  roomType: 0
+  roomSize: 20
+  ground: {fileID: 11400000, guid: e92af90ecd9cba64896d0560c9c94c04, type: 2}
+  leftWall: {fileID: 11400000, guid: daf7215175479df4bb2f548a2358ce56, type: 2}
+  rightWall: {fileID: 11400000, guid: ac2fdf2284d4a4f4b96a4304c6a1ec55, type: 2}
+  topWall: {fileID: 11400000, guid: 02f5d19dbc592d8469951f518cf0307a, type: 2}
+  bottomWall: {fileID: 11400000, guid: 6e45129f2ebcf7346a4900916107f95e, type: 2}
+  upLeftCornerWall: {fileID: 11400000, guid: d9dc1d41a13382843861b0fa82470131, type: 2}
+  upRightCornerWall: {fileID: 11400000, guid: 5fae9a6a6d94a8e41a730dd9491768bb, type: 2}
+  bottomLeftCornerWall: {fileID: 11400000, guid: 526c21cd6a47c7b4b8eea092d128a8e0,
+    type: 2}
+  bottomRightCornerWall: {fileID: 11400000, guid: 889bd20d255bcdf43a1bba36a91d1b11,
+    type: 2}

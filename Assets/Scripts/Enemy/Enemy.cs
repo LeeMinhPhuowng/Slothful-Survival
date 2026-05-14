@@ -1,10 +1,9 @@
-using Pathfinding;
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem.XR.Haptics;
 using static UnityEngine.Rendering.DebugUI;
-using Game.UI.Data;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
@@ -19,18 +18,10 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float vfxExistTime;
     #endregion
 
-    //AI Pathfinding
-    #region AI Pathfinding
-    public AIPath AIPath { get; set; }
-    public AIDestinationSetter DestinationSetter { get; set; }
-    public Seeker Seeker { get; set; }
-    public Transform TargetTransform { get; set; }
-    #endregion
-
     //Properties
     public float MaxHealth { get; set; } //Not use
     public float CurrentHealth { get; set; }
-    public int MoveSpeed { get; set; }
+    public float MoveSpeed { get; set; }
     public float AttackRange { get; set; }
 
     private Animator animator;
@@ -39,25 +30,28 @@ public class Enemy : MonoBehaviour, IDamageable
     private int attackTrigger = Animator.StringToHash("Attack");
 
     private bool isAttacking = false;
-    private bool isDead;
+    private bool canMove = true;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        AIPath = GetComponent<AIPath>();
-        DestinationSetter = GetComponent<AIDestinationSetter>();
-        Seeker = GetComponent<Seeker>();
-        
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        canMove = true;
+        
+        if (rb != null)
+        {
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.gravityScale = 0f;
+            rb.freezeRotation = true;
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        }
     }
 
     private void OnEnable()
     {
-        isDead = false;
         InitializeFromStat();
-        DestinationSetter.target = PlayerInfo.instance.transform;
         Ticker.OnTickAction += Tick;
         GameManager.EnemyCount++;
     }
@@ -72,16 +66,11 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         CurrentHealth = info.maxHealth;
         MoveSpeed = info.moveSpeed;
-        AIPath.maxSpeed = MoveSpeed;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
-        if (isDead)
-        {
-            return;
-        }
-
+        if (!gameObject.activeInHierarchy) return;
         TriggerTakeDamageVFX();
         CurrentHealth -= damage;
         if (CurrentHealth <= 0)
@@ -93,13 +82,6 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void Die()
     {
-        if (isDead)
-        {
-            return;
-        }
-
-        isDead = true;
-        GameplayRunSignals.ReportEnemyKilled();
         ObjectPool.instance.BackToPool(this.gameObject, info.type);
 
         //Sinh exp
@@ -110,20 +92,44 @@ public class Enemy : MonoBehaviour, IDamageable
     }
     void Update()
     {
+        if (PlayerInfo.instance == null) return;
+
+        float dirX = PlayerInfo.instance.transform.position.x - transform.position.x;
+        if (dirX >= 0.01f)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (dirX <= -0.01f)
+        {
+            spriteRenderer.flipX = true;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (!canMove || isAttacking || PlayerInfo.instance == null) return;
+
+        Vector2 direction = (PlayerInfo.instance.transform.position - transform.position).normalized;
         
+        // Separation
+        Vector2 separation = Vector2.zero;
+        Collider2D[] nearby = Physics2D.OverlapCircleAll(transform.position, 0.6f);
+        foreach (var other in nearby)
+        {
+            if (other.gameObject != gameObject && other.CompareTag("Enemy"))
+            {
+                separation += (Vector2)(transform.position - other.transform.position);
+            }
+        }
+
+        Vector2 finalVelocity = (direction + separation.normalized * 0.4f).normalized;
+        rb.MovePosition(rb.position + finalVelocity * (MoveSpeed * Time.fixedDeltaTime));
     }
 
     //runs every 0.2 secs
     private void Tick()
     {
-        if (AIPath.desiredVelocity.x >= 0.01f)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
-        else if (AIPath.desiredVelocity.x <= -0.01f)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
+        if (PlayerInfo.instance == null) return;
 
         if (Vector2.Distance(this.transform.position, PlayerInfo.instance.transform.position) <= info.attackRange && isAttacking == false)
         {
@@ -135,6 +141,8 @@ public class Enemy : MonoBehaviour, IDamageable
     #region TakeDmgVFX Coroutine
     private void TriggerTakeDamageVFX()
     {
+        if (!gameObject.activeInHierarchy) return;
+        
         if (vfxRoutine != null)
         {
             StopCoroutine(vfxRoutine);
@@ -143,12 +151,14 @@ public class Enemy : MonoBehaviour, IDamageable
     }
     IEnumerator VFXCoroutine()
     {
+        float duration = vfxExistTime > 0 ? vfxExistTime : 0.1f;
         var block = new MaterialPropertyBlock();
+        
         spriteRenderer.GetPropertyBlock(block);
         block.SetFloat("_FlAmount", 1);
         spriteRenderer.SetPropertyBlock(block);
 
-        yield return new WaitForSeconds(vfxExistTime);
+        yield return new WaitForSeconds(duration);
 
         spriteRenderer.GetPropertyBlock(block);
         block.SetFloat("_FlAmount", 0);
@@ -160,14 +170,21 @@ public class Enemy : MonoBehaviour, IDamageable
     IEnumerator EnemyAttack()
     {
         isAttacking = true;
-        AIPath.canMove = false;
+        canMove = false;
         animator.SetTrigger(attackTrigger);
-        yield return new WaitForSeconds(0.8f);
-        PlayerInfo.instance.TakeDamage(info.damage);
-        Debug.Log(this.gameObject.name + "Attack!");
+        
+        // Wait for a shorter time before applying damage to make it harder to dodge
+        yield return new WaitForSeconds(0.3f); 
+        
+        if (PlayerInfo.instance != null && Vector2.Distance(transform.position, PlayerInfo.instance.transform.position) <= info.attackRange + 0.5f)
+        {
+            PlayerInfo.instance.TakeDamage(info.damage);
+            Debug.Log(this.gameObject.name + " hit Player!");
+        }
+
         yield return new WaitForSeconds(info.attackCooldown);
         isAttacking = false;
-        AIPath.canMove = true;
+        canMove = true;
     }
 
     #endregion

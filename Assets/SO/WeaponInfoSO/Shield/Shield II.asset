@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a0a5f530f04534ab625c5c00fde34c, type: 3}
   m_Name: Shield II
   m_EditorClassIdentifier: 
-  attackDamage: 5
-  attackCooldown: 5
-  attackRange: 10
+  attackDamage: 3
+  attackCooldown: 4
+  attackRange: 0.7
   ID: 22
+  icon: {fileID: 6438439062928067696, guid: 0f7a690c7bde6c9469bd7a96f2e0d4de, type: 3}
   nextAugmentInfo:
-  - {fileID: 11400000, guid: fd7aa9b98bc51844d97fe5411529d243, type: 2}
+  - {fileID: 11400000, guid: 2deb2bbacf623854c89e9a100d87a43e, type: 2}

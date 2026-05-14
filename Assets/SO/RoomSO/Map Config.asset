@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f36af525f56a314b8ffb4c49b3d194b, type: 3}
+  m_Name: Map Config
+  m_EditorClassIdentifier: 
+  numberOfRooms: 5
+  cellSize: 1
+  chestRoomRatio: 0.1
+  shopRoomRatio: 0.1
+  defaultRoomConfigs:
+  - {fileID: 11400000, guid: bf2bd563462cdcf4ebda5e35a9b209d2, type: 2}
+  chestRoomConfigs:
+  - {fileID: 11400000, guid: 0f55782a420776e41a815160f5b4792d, type: 2}
+  shopRoomConfigs:
+  - {fileID: 11400000, guid: 98fb33d485752e5458c7e8509073d84b, type: 2}
+  bossRoomConfigs:
+  - {fileID: 11400000, guid: 04e7d1908c101a142ab961e4af2bdcbb, type: 2}

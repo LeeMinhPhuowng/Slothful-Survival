@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 907927859367174668}
   - component: {fileID: 4195609850922123372}
   - component: {fileID: 7684649750584044884}
-  - component: {fileID: 4485908064271350969}
   m_Layer: 9
   m_Name: Circle
   m_TagString: Untagged
@@ -101,6 +100,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4195609850922123372
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,6 +146,7 @@ SpriteRenderer:
   m_SortingLayerID: 724965483
   m_SortingLayer: 4
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
   m_Color: {r: 0.3509434, g: 0.3509434, b: 0.3509434, a: 0}
@@ -156,7 +157,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &7684649750584044884
 CircleCollider2D:
@@ -194,20 +194,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &4485908064271350969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8009300755616916246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3633623e43350864aa2695d0d65c45e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ZoneDamage
-  timeBetweenAttacks: 0.25
-  info: {fileID: 11400000, guid: b32f387bdebf04e4fa820ca43a1d3bf7, type: 2}
 --- !u!1001 &4878095394344917372
 PrefabInstance:
   m_ObjectHideFlags: 0

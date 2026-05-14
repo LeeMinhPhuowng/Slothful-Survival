@@ -1,17 +1,18 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Runtime.Versioning;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public int damage;
-    public int lifetime;
+    public float damage;
+    public float lifetime;
     public ObjectType type;
-    [SerializeField] float moveSpeed;
+    public LayerMask enemyLayer;
+    [SerializeField] protected float moveSpeed;
     [SerializeField] Rigidbody2D rb;
 
     Coroutine returnRoutine;
-    public void Init(int value, int value2)
+    public void Init(float value, float value2)
     {
         damage = value;
         lifetime = value2;
@@ -49,7 +50,7 @@ public class Projectile : MonoBehaviour
 
     public void HomeTowards(GameObject target, float rotateSpeed)
     {
-        if (target == null) return;
+        if (target == null || !target.activeInHierarchy) return;
         Vector2 direction = (target.transform.position - gameObject.transform.position).normalized;
         float rotateAmount = Vector3.Cross(direction, transform.right).z;
         rb.angularVelocity = -rotateAmount * rotateSpeed;

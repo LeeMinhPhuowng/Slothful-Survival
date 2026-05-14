@@ -13,7 +13,16 @@ public class HomingProjectile : Projectile
     }
     private void Update()
     {
-        HomeTowards(target, rotateSpeed);
+        // Safety check: if target is destroyed or inactive, just fly forward
+        if (target != null && target.activeInHierarchy)
+        {
+            HomeTowards(target, rotateSpeed);
+        }
+        else
+        {
+            // If target is lost, just move straight
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+        }
     }
 
     public void SetTarget(GameObject target)

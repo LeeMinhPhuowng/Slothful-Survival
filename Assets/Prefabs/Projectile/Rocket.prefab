@@ -39,6 +39,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7783479194124513632
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -84,6 +85,7 @@ SpriteRenderer:
   m_SortingLayerID: 1926092405
   m_SortingLayer: 8
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -1497121213533345291, guid: c96d0d7c344a4894185cf4c0b1492ef2,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -94,7 +96,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &386723924637261444
 BoxCollider2D:
@@ -196,6 +197,9 @@ MonoBehaviour:
   damage: 0
   lifetime: 0
   type: 7
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
   moveSpeed: 15
   rb: {fileID: 370722470226335658}
 --- !u!1001 &2701663920584126879
