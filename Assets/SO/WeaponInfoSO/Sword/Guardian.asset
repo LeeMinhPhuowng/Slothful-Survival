@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Guardian
   m_EditorClassIdentifier: 
   attackDamage: 10
-  attackCooldown: 8
+  attackCooldown: 0
   attackRange: 5
   ID: 5
+  icon: {fileID: 287197706594284169, guid: 6d2aed2ddb7e1d747a6f2f2c3b5bd666, type: 3}
   nextAugmentInfo: []

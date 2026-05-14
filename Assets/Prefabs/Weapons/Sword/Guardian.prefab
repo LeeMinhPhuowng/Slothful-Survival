@@ -396,3 +396,7 @@ MonoBehaviour:
     m_Bits: 128
   info: {fileID: 11400000, guid: b63762bf2fac9b648bae258aac9d363a, type: 2}
   blades: {fileID: 8651636882634973235, guid: cfab267dfcd2b4148903a71da53aa7cb, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  existTime: 3

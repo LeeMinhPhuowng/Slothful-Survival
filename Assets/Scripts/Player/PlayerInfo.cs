@@ -13,7 +13,10 @@ public class PlayerInfo : MonoBehaviour, IDamageable
     private float currentHealth;
     private float moveSpeed;
     private float pickupRange;
+    private float bonusAttack;
+    private float armor;
     private int currentLevel;
+
     [SerializeField] float basePickupRange;
 
     private HealthBarValue healthBarValue;
@@ -24,6 +27,8 @@ public class PlayerInfo : MonoBehaviour, IDamageable
     private Coroutine vfxRoutine;
 
     [SerializeField] float vfxExistTime;
+    [SerializeField] float invincibilityDuration = 0.5f;
+    private float lastDamageTime;
 
     public static PlayerInfo instance;
 
@@ -32,20 +37,6 @@ public class PlayerInfo : MonoBehaviour, IDamageable
         instance = this;    
         spriteRenderer = GetComponent<SpriteRenderer>();
         mpb = new MaterialPropertyBlock();
-    }
-
-    [Inject]
-    private void Construct(InventoryService inventoryService)
-    {
-        foreach ((EquipmentSlot slot, EquipmentItemModel item) in inventoryService.EquippedItems)
-        {
-            if (item == null)
-            {
-                continue;
-            }
-
-            // Cong chi so tu Item
-        }
     }
 
     private void Update()
@@ -111,6 +102,28 @@ public class PlayerInfo : MonoBehaviour, IDamageable
             currentHealth = Mathf.Clamp(value, 0, maxHealth);
         }
     }
+    public float BonusAttack
+    {
+        get
+        {
+            return bonusAttack;
+        }
+        set
+        {
+            bonusAttack = value;
+        }
+    }
+    public float Armor
+    {
+        get
+        {
+            return armor;
+        }
+        set
+        {
+            armor = value;
+        }
+    }
 
     private float GetCurrentHealthPercentage()
     {
@@ -128,9 +141,9 @@ public class PlayerInfo : MonoBehaviour, IDamageable
         //healthBarValue = HealthBarCanvas.Instance.gameObject.GetComponentInChildren<HealthBarValue>();
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
-        CurrentHealth -= amount;
+        CurrentHealth -= (amount - armor / 10); //Hard code temporarily
         TriggerTakeDamageVFX();
         //healthBarValue.SetHealth(GetCurrentHealthPercentage());
         if(CurrentHealth <= 0)
@@ -150,6 +163,24 @@ public class PlayerInfo : MonoBehaviour, IDamageable
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        // If we recently took damage, don't take it again yet
+        if (Time.time < lastDamageTime + invincibilityDuration) return;
+
+        if (collision.CompareTag("Enemy"))
+        {
+            Enemy enemy = collision.GetComponent<Enemy>();
+            if (enemy == null) enemy = collision.GetComponentInParent<Enemy>();
+
+            if (enemy != null)
+            {
+                TakeDamage(enemy.info.damage);
+                lastDamageTime = Time.time; // Start I-Frame
+            }
+        }
+    }
+
     //TakeDamage Effect
     private void TriggerTakeDamageVFX()
     {
@@ -161,9 +192,10 @@ public class PlayerInfo : MonoBehaviour, IDamageable
     }
     IEnumerator VFXCoroutine()
     {
+        float duration = vfxExistTime > 0 ? vfxExistTime : 0.1f;
         mpb.SetFloat("_FlAmount", 1);
         spriteRenderer.SetPropertyBlock(mpb);
-        yield return new WaitForSeconds(vfxExistTime);
+        yield return new WaitForSeconds(duration);
         mpb.SetFloat("_FlAmount", 0);
         spriteRenderer.SetPropertyBlock(mpb);
     }

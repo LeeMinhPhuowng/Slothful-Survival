@@ -120,29 +120,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6049457209983515899, guid: 5d61600a60e9030419091cdc0e5e266c,
         type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049457209983515899, guid: 5d61600a60e9030419091cdc0e5e266c,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.46875
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049457209983515899, guid: 5d61600a60e9030419091cdc0e5e266c,
+        type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.39
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6049457209983515899, guid: 5d61600a60e9030419091cdc0e5e266c,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.23
+      value: 0.09375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187894848979570603, guid: 5d61600a60e9030419091cdc0e5e266c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187894848979570603, guid: 5d61600a60e9030419091cdc0e5e266c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.46875
       objectReference: {fileID: 0}
     - target: {fileID: 8187894848979570603, guid: 5d61600a60e9030419091cdc0e5e266c,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1471273861, guid: 0e230edca5c0dfb4cb476f40b417ccee,
+        type: 3}
     - target: {fileID: 8187894848979570603, guid: 5d61600a60e9030419091cdc0e5e266c,
         type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8187894848979570603, guid: 5d61600a60e9030419091cdc0e5e266c,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 5d3afc01f7eed9149b755b23fc119d52, type: 2}
     m_RemovedComponents:
     - {fileID: -1689762313760082939, guid: 5d61600a60e9030419091cdc0e5e266c, type: 3}
     - {fileID: 1498939980194084069, guid: 5d61600a60e9030419091cdc0e5e266c, type: 3}
@@ -175,6 +196,9 @@ MonoBehaviour:
   damage: 0
   lifetime: 0
   type: 8
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
   moveSpeed: 20
   rb: {fileID: 1184069249342288095}
 --- !u!50 &1184069249342288095 stripped

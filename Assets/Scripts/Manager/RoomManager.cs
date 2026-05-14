@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -8,26 +9,35 @@ public class RoomManager : MonoBehaviour
 
     private IReadOnlyList<RoomEntity> _rooms;
     private Tilemap _wallTilemap;
+    private Tilemap _groundTilemap;
     private RoomEntity _currentRoom;
     private HashSet<RoomEntity> _clearedRooms = new HashSet<RoomEntity>();
+    private Coroutine _roomEntryCoroutine;
+    private bool _isSequenceRunning = false;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    private float _cellSize = 1f;
+    private void Start()
+    {
+        if (MapView.GeneratedRooms != null && MapView.WallTilemap != null)
+        {
+            Initialize(MapView.GeneratedRooms, MapView.WallTilemap, MapView.GroundTilemap);
+            Debug.Log($"[RoomManager] Self-initialized with {MapView.GeneratedRooms.Count} rooms.");
+        }
+    }
 
-    public void Initialize(IReadOnlyList<RoomEntity> rooms, Tilemap wallTilemap, float cellSize = 1f)
+    public void Initialize(IReadOnlyList<RoomEntity> rooms, Tilemap wallTilemap, Tilemap groundTilemap)
     {
         _rooms = rooms;
         _wallTilemap = wallTilemap;
-        _cellSize = cellSize;
+        _groundTilemap = groundTilemap;
         
-        // Start room is cleared by default
         foreach (var room in _rooms)
         {
-            if (room.GetPosition() == Vector2Int.zero)
+            if (room.GetRoomType() == RoomType.Start)
             {
                 _clearedRooms.Add(room);
                 break;
@@ -45,17 +55,23 @@ public class RoomManager : MonoBehaviour
 
     private void UpdateCurrentRoom()
     {
+        if (_wallTilemap == null) return;
+
+        const int entryMargin = 2;
+
         foreach (var room in _rooms)
         {
             int size = room.Config.RoomSize;
-            float startX = room.GetPosition().x * size * _cellSize;
-            float startY = room.GetPosition().y * size * _cellSize;
-            float endX = startX + (size * _cellSize);
-            float endY = startY + (size * _cellSize);
+            Vector2Int gridPos = room.GetPosition();
+            int tileStartX = gridPos.x * size;
+            int tileStartY = gridPos.y * size;
+
+            Vector3 innerMin = _wallTilemap.CellToWorld(new Vector3Int(tileStartX + entryMargin, tileStartY + entryMargin, 0));
+            Vector3 innerMax = _wallTilemap.CellToWorld(new Vector3Int(tileStartX + size - entryMargin, tileStartY + size - entryMargin, 0));
 
             Vector3 playerPos = PlayerInfo.instance.transform.position;
-            if (playerPos.x >= startX && playerPos.x <= endX &&
-                playerPos.y >= startY && playerPos.y <= endY)
+            if (playerPos.x >= innerMin.x && playerPos.x <= innerMax.x &&
+                playerPos.y >= innerMin.y && playerPos.y <= innerMax.y)
             {
                 if (_currentRoom != room)
                 {
@@ -71,23 +87,58 @@ public class RoomManager : MonoBehaviour
     {
         if (!_clearedRooms.Contains(room))
         {
-            // Lock doors
-            SetDoors(room, true);
-            // Trigger spawner
-            Spawner.Instance.StartSpawningForRoom(room);
+            if (_roomEntryCoroutine != null)
+                StopCoroutine(_roomEntryCoroutine);
+            _roomEntryCoroutine = StartCoroutine(RoomEntrySequence(room));
         }
+    }
+
+    /// <summary>
+    /// 1) Close doors immediately (with wall tiles drawn)
+    /// 2) Wait 1 second
+    /// 3) Start spawning enemies
+    /// </summary>
+    private IEnumerator RoomEntrySequence(RoomEntity room)
+    {
+        _isSequenceRunning = true;
+        // Close doors with wall tiles
+        SetDoors(room, true);
+        Debug.Log($"[RoomManager] Doors locked for room at {room.GetPosition()}");
+
+        // Wait 1 second before spawning
+        yield return new WaitForSeconds(1f);
+
+        // Start enemy spawning
+        if (Spawner.Instance != null)
+        {
+            Spawner.Instance.StartSpawningForRoom(room);
+            Debug.Log($"[RoomManager] Spawning started for room at {room.GetPosition()}");
+        }
+        _isSequenceRunning = false;
     }
 
     private void CheckRoomClearState()
     {
-        if (_currentRoom == null || _clearedRooms.Contains(_currentRoom)) return;
+        if (_currentRoom == null || _clearedRooms.Contains(_currentRoom) || _isSequenceRunning) return;
 
-        if (Spawner.Instance.IsRoomCleared())
+        if (Spawner.Instance != null && Spawner.Instance.IsRoomCleared())
         {
             _clearedRooms.Add(_currentRoom);
-            // Unlock doors
             SetDoors(_currentRoom, false);
             Debug.Log("Room Cleared!");
+        }
+    }
+
+    private int[] GetDoorOffsets(int roomSize)
+    {
+        int center = roomSize / 2;
+        if (roomSize % 2 == 0)
+        {
+            return new int[] { center - 1, center };
+        }
+        else
+        {
+            return new int[] { center - 1, center, center + 1 };
         }
     }
 
@@ -99,49 +150,45 @@ public class RoomManager : MonoBehaviour
         Vector2Int gridPos = room.GetPosition();
         int startX = gridPos.x * size;
         int startY = gridPos.y * size;
-        int doorCenter = size / 2;
+        int[] doorOffsets = GetDoorOffsets(size);
 
-        TileBase wallTile = room.Config.TopWall; // Fallback tile
-
-        // Check neighbours and lock/unlock doors
+        // Up door
         if (room.GetNeighbours().ContainsKey(Vector2Int.up))
-            SetTileAt(_wallTilemap, new Vector3Int(startX + doorCenter, startY + size - 1, 0), isLocked ? room.Config.TopWall : null);
-
-        if (room.GetNeighbours().ContainsKey(Vector2Int.down))
-            SetTileAt(_wallTilemap, new Vector3Int(startX + doorCenter, startY + 0, 0), isLocked ? room.Config.BottomWall : null);
-
-        if (room.GetNeighbours().ContainsKey(Vector2Int.right))
-            SetTileAt(_wallTilemap, new Vector3Int(startX + size - 1, startY + doorCenter, 0), isLocked ? room.Config.RightWall : null);
-
-        if (room.GetNeighbours().ContainsKey(Vector2Int.left))
-            SetTileAt(_wallTilemap, new Vector3Int(startX + 0, startY + doorCenter, 0), isLocked ? room.Config.LeftWall : null);
-    }
-
-    private Dictionary<Vector3Int, GameObject> _doorColliders = new Dictionary<Vector3Int, GameObject>();
-
-    private void SetTileAt(Tilemap tilemap, Vector3Int pos, TileBase tile)
-    {
-        tilemap.SetTile(pos, tile);
-        
-        bool isLocked = tile != null;
-        if (isLocked)
         {
-            if (!_doorColliders.ContainsKey(pos))
+            foreach (int offset in doorOffsets)
             {
-                var go = new GameObject("DoorCol");
-                go.transform.SetParent(tilemap.transform);
-                go.transform.localPosition = new Vector3((pos.x + 0.5f) * _cellSize, (pos.y + 0.5f) * _cellSize, 0);
-                var col = go.AddComponent<BoxCollider2D>();
-                col.size = new Vector2(1.5f * _cellSize, 1.5f * _cellSize); // Slightly thicker to ensure no clipping
-                _doorColliders[pos] = go;
+                Vector3Int pos = new Vector3Int(startX + offset, startY + size - 1, 0);
+                _wallTilemap.SetTile(pos, isLocked ? room.Config.TopWall : null);
             }
-            _doorColliders[pos].SetActive(true);
         }
-        else
+
+        // Down door
+        if (room.GetNeighbours().ContainsKey(Vector2Int.down))
         {
-            if (_doorColliders.ContainsKey(pos))
+            foreach (int offset in doorOffsets)
             {
-                _doorColliders[pos].SetActive(false);
+                Vector3Int pos = new Vector3Int(startX + offset, startY, 0);
+                _wallTilemap.SetTile(pos, isLocked ? room.Config.BottomWall : null);
+            }
+        }
+
+        // Right door
+        if (room.GetNeighbours().ContainsKey(Vector2Int.right))
+        {
+            foreach (int offset in doorOffsets)
+            {
+                Vector3Int pos = new Vector3Int(startX + size - 1, startY + offset, 0);
+                _wallTilemap.SetTile(pos, isLocked ? room.Config.RightWall : null);
+            }
+        }
+
+        // Left door
+        if (room.GetNeighbours().ContainsKey(Vector2Int.left))
+        {
+            foreach (int offset in doorOffsets)
+            {
+                Vector3Int pos = new Vector3Int(startX, startY + offset, 0);
+                _wallTilemap.SetTile(pos, isLocked ? room.Config.LeftWall : null);
             }
         }
     }

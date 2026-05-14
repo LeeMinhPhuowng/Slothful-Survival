@@ -4,28 +4,40 @@ public class BaseStaff : AWeaponBehaviour
 {
     [SerializeField] WeaponInfoSO info;
     [SerializeField] GameObject projectilePrefab;
-    public override void Attack(Transform castPosition)
+    public override bool Attack(Transform castPosition)
     {
-        var enemies = Physics2D.OverlapCircleAll(castPosition.position, info.attackRange, enemyLayer);
-        if (enemies.Length == 0) return;
+        if (PlayerInfo.instance == null) return false;
+        Vector3 playerPos = PlayerInfo.instance.transform.position;
+
+        var enemies = Physics2D.OverlapCircleAll(playerPos, info.attackRange, enemyLayer);
+        if (enemies.Length == 0) return false;
+        
         float minDistance = Mathf.Infinity;
         Collider2D target = null;
         foreach (var enemy in enemies)
         {
-            if (Vector2.Distance(castPosition.position, enemy.transform.position) < minDistance)
+            float dist = Vector2.Distance(playerPos, enemy.transform.position);
+            if (dist < minDistance)
             {
-                minDistance = Vector2.Distance(castPosition.position, enemy.transform.position);
+                minDistance = dist;
                 target = enemy;
             }
         }
         if (target != null)
         {
-            Vector2 direction = (target.transform.position - castPosition.position).normalized;
+            Vector2 direction = (target.transform.position - playerPos).normalized;
             Quaternion quaternion = Quaternion.FromToRotation(Vector3.right, direction);
             ObjectType type = projectilePrefab.GetComponent<Projectile>().type;
 
-            var projectileObj = ObjectPool.instance.SpawnFromPool(type, castPosition.position, quaternion, (o) => { o.GetComponent<Projectile>().Init(info.attackDamage, info.attackCooldown); });
+            var projectileObj = ObjectPool.instance.SpawnFromPool(type, playerPos, quaternion, (o) => 
+            { 
+                Projectile p = o.GetComponent<Projectile>();
+                p.Init(info.attackDamage, info.attackCooldown); 
+                p.enemyLayer = enemyLayer;
+            });
             projectileObj.GetComponent<Projectile>().MoveForward();
+            return true;
         }
+        return false;
     }
 }

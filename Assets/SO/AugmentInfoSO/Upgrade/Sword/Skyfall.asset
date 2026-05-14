@@ -17,6 +17,6 @@ MonoBehaviour:
   frame: {fileID: 21300000, guid: 8af071b0680d1d744b9bdb7d005c538a, type: 3}
   image: {fileID: 5690544274410410389, guid: 10e75fecff54a804bbafb15db357b456, type: 3}
   augmentType: 1
-  SourceWeaponID: 3
+  SourceWeaponID: 1
   UpgradedWeapon: {fileID: 3442482019999103755, guid: 828eb33131615824aa943c702894da4b,
     type: 3}

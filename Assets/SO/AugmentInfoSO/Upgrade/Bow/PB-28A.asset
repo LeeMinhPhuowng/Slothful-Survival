@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PB-28A
   m_EditorClassIdentifier: 
   name: PB-28A
-  description: Hell nah
+  description: Penetrating laser beams!
   frame: {fileID: 21300000, guid: 8af071b0680d1d744b9bdb7d005c538a, type: 3}
   image: {fileID: 2324247043524583214, guid: 0e230edca5c0dfb4cb476f40b417ccee, type: 3}
   augmentType: 1
-  SourceWeaponID: 17
+  SourceWeaponID: 15
   UpgradedWeapon: {fileID: 6843897308620803910, guid: e2c088bc6d4b5bc4daa0c261169b52ef,
     type: 3}

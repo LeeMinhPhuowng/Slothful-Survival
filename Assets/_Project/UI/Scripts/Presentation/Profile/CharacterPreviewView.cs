@@ -9,6 +9,7 @@ namespace Game.UI.Presentation.Profile
         [SerializeField] private Animator previewAnimator;
         [SerializeField] private TMP_Text nameText;
         [SerializeField] private TMP_Text levelText;
+        [SerializeField] private Animator backgroundCharacterAnimator;
 
         public void Render(CharacterModel character)
         {
@@ -25,6 +26,11 @@ namespace Game.UI.Presentation.Profile
             if (previewAnimator != null && character != null)
             {
                 previewAnimator.Play($"{character.DisplayName}Idle", 0, 0f);
+            }
+
+            if (backgroundCharacterAnimator != null && character != null)
+            {
+                backgroundCharacterAnimator.Play($"{character.DisplayName}Idle", 0, 0f);
             }
         }
     }

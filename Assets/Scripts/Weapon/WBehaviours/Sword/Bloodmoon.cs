@@ -9,10 +9,17 @@ public class Bloodmoon : AWeaponBehaviour
     [SerializeField] float timeBetweenSlashes;
 
     bool isSlashing = false;
-    public override void Attack(Transform castPosition)
+    public override bool Attack(Transform castPosition)
     {
-        if(isSlashing) { return; }
+        if(isSlashing) { return false; }
+        if (PlayerInfo.instance == null) return false;
+
+        // Check for enemies before starting
+        var enemies = Physics2D.OverlapCircleAll(PlayerInfo.instance.transform.position, info.attackRange, enemyLayer);
+        if (enemies.Length == 0) return false;
+
         StartCoroutine(Slash());
+        return true;
     }
 
     IEnumerator Slash()
@@ -21,7 +28,7 @@ public class Bloodmoon : AWeaponBehaviour
         
         for(int i = 0; i < enemyAmount; i++)
         {
-            var enemies = Physics2D.OverlapCircleAll(this.gameObject.transform.parent.position, info.attackRange, enemyLayer);
+            var enemies = Physics2D.OverlapCircleAll(PlayerInfo.instance.transform.position, info.attackRange, enemyLayer);
             if (enemies.Length == 0)
             {
                 isSlashing = false;
@@ -32,7 +39,7 @@ public class Bloodmoon : AWeaponBehaviour
             {
                 Enemy enemy = target.GetComponent<Enemy>();
                 GameObject vfx = ObjectPool.instance.SpawnFromPool(ObjectType.BloodSlashVFX, target.transform.position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
-                //enemy?.TakeDamage(info.attackDamage);
+                enemy?.TakeDamage(info.attackDamage);
                 StartCoroutine(ReturnVFX(vfx));
                 yield return new WaitForSeconds(timeBetweenSlashes);
             }

@@ -93,13 +93,13 @@ PrefabInstance:
         type: 3}
       propertyPath: info
       value: 
-      objectReference: {fileID: 11400000, guid: 854feb73419f4894f86b7dce04b6380f,
+      objectReference: {fileID: 11400000, guid: 55cb7ad737cbe1b4cbb1bdd96e2dd499,
         type: 2}
     - target: {fileID: 5273775346641264913, guid: 61e65497bd1354346a7d79c64c57e574,
         type: 3}
       propertyPath: behaviour
       value: 
-      objectReference: {fileID: 1629026035334408896}
+      objectReference: {fileID: -8925061188453287339}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -107,7 +107,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2762722152618124702, guid: 61e65497bd1354346a7d79c64c57e574,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1629026035334408896}
+      addedObject: {fileID: -8925061188453287339}
   m_SourcePrefab: {fileID: 100100000, guid: 61e65497bd1354346a7d79c64c57e574, type: 3}
 --- !u!1 &6396075262486740225 stripped
 GameObject:
@@ -115,7 +115,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9120991807256696991}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1629026035334408896
+--- !u!114 &-8925061188453287339
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,11 +124,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6396075262486740225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36663fc1e3605d64284112b3b102ddc2, type: 3}
+  m_Script: {fileID: 11500000, guid: b978de6d3f1ffd84aab96f64c6d86abd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoomerangBehaviour
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  info: {fileID: 11400000, guid: 79fc4434775e8b34bb4fddb77f07358e, type: 2}
-  VFXExistTime: 0.35
+  info: {fileID: 11400000, guid: 55cb7ad737cbe1b4cbb1bdd96e2dd499, type: 2}
+  boomerangPrefab: {fileID: 8707204994675441862, guid: ca71d2e876123d043a1878d7e743d951,
+    type: 3}
+  travelDistance: 5

@@ -67,19 +67,7 @@ public class Augment : MonoBehaviour
 
     private void UpgradeAugment(UpgradeInfoSO info)
     {
-        for (int i = 0; i < WeaponManager.Instance.weapons.Count; i++)
-        {
-            GameObject weapon = WeaponManager.Instance.weapons[i];
-            Weapon weaponComponent = weapon.GetComponent<Weapon>();
-            if(info.SourceWeaponID ==  weaponComponent.Info.ID)
-            {
-                Transform parent = WeaponManager.Instance.weaponPositions[i];
-                GameObject upgradedWeapon = Instantiate(info.UpgradedWeapon, parent);
-                WeaponManager.Instance.weapons[i] = upgradedWeapon;
-                Destroy(weapon);
-                break;
-            }
-        }
+        WeaponManager.Instance.ReplaceWeapon(info.SourceWeaponID, info.UpgradedWeapon);
     }
 
     public void OnClick()

@@ -133,3 +133,4 @@ MonoBehaviour:
   info: {fileID: 11400000, guid: b32f387bdebf04e4fa820ca43a1d3bf7, type: 2}
   shields: {fileID: 4297190519035263311, guid: cf6b0445f0cbe5741a175bb16c1122d8, type: 3}
   existTime: 4.95
+  damageInterval: 0.5

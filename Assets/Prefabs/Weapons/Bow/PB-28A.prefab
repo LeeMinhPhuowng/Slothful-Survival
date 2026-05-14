@@ -454,6 +454,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   info: {fileID: 11400000, guid: 7e4bcdc0afe8c9b4ebdb76f4ca31ea48, type: 2}
+  projectilePrefab: {fileID: 1012636808584174642, guid: 075093ead4f8d3045bb26d36048c5f03,
+    type: 3}
   directions:
   - {x: 0, y: 1.5}
   - {x: -1, y: 1}

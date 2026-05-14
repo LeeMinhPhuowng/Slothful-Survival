@@ -27,7 +27,10 @@ public class PlayerLevelManager : MonoBehaviour
 
     private void Update()
     {
-        levelText.text = PlayerEXP.instance.GetPlayerLevel().ToString();
-        expBar.value = PlayerEXP.instance.GetEXPProgress();
+        if (PlayerEXP.instance != null)
+        {
+            levelText.text = PlayerEXP.instance.GetPlayerLevel().ToString();
+            expBar.value = PlayerEXP.instance.GetEXPProgress();
+        }
     }
 }

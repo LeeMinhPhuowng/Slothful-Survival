@@ -7,11 +7,14 @@ public class AOEProjectile : Projectile
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        var enemies = Physics2D.OverlapCircleAll(collision.gameObject.transform.position, radius);
+        var enemies = Physics2D.OverlapCircleAll(collision.gameObject.transform.position, radius, enemyLayer);
         foreach (var enemy in enemies)
         {
             Enemy target = enemy.gameObject.GetComponent<Enemy>();
-            target.TakeDamage(damage);
+            if (target != null)
+            {
+                target.TakeDamage(damage);
+            }
         }
     }
 }

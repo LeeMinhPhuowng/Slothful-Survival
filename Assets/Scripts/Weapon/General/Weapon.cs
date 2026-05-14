@@ -7,18 +7,27 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] AWeaponBehaviour behaviour;
     float coolDownLeft; 
+
+    /// <summary>Returns 0 to 1 value for UI fill (1 = on cooldown, 0 = ready)</summary>
+    public float CooldownNormalized => Mathf.Clamp01(coolDownLeft / info.attackCooldown);
+
     private void Start()
     {
         coolDownLeft = 0f;
     }
     private void Update()
     {
-        coolDownLeft -= Time.deltaTime;
+        if (coolDownLeft > 0)
+        {
+            coolDownLeft -= Time.deltaTime;
+        }
+
         if(coolDownLeft <= 0)
         {
-            Debug.Log("Attack Called");
-            behaviour.Attack(transform);
-            coolDownLeft = info.attackCooldown;
+            if (behaviour.Attack(transform))
+            {
+                coolDownLeft = info.attackCooldown;
+            }
         }
     }
 

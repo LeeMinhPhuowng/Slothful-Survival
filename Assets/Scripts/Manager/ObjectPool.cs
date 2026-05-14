@@ -76,6 +76,7 @@ public class ObjectPool : MonoBehaviour
     {
         if (!poolDictionary.ContainsKey(type))
         {
+            Debug.LogWarning($"[ObjectPool] Pool with type {type} not found! Make sure it's added in the Inspector.");
             return null;
         }
         GameObject obj = poolDictionary[type].Dequeue();

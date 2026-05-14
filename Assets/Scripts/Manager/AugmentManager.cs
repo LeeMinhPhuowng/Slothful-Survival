@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
+using System.Collections; // Add DOTween
 
 public class AugmentManager : MonoBehaviour
 {
     [SerializeField] GameObject canvas;
+    [SerializeField] Transform mainPanel; // The panel containing the options
     [SerializeField] List<GameObject> options;
 
     public static AugmentManager Instance{get; private set;}
@@ -35,9 +38,9 @@ public class AugmentManager : MonoBehaviour
         {
             augmentInfos.AddRange(addInfos);
         }
-        foreach (var weapon in WeaponManager.Instance.weapons)
+        foreach (var weapon in WeaponManager.Instance.ActiveWeapons)
         {
-            WeaponInfoSO weaponInfo = weapon.GetComponent<Weapon>().Info;
+            WeaponInfoSO weaponInfo = weapon.Info;
             if (weaponInfo.nextAugmentInfo.Count == 0) continue;
             foreach (var nextAugment in weaponInfo.nextAugmentInfo)
             {
@@ -49,7 +52,18 @@ public class AugmentManager : MonoBehaviour
     public void OnPlayerLevelUp()
     {
         Debug.Log("Leveled!");
+        StartCoroutine(LevelUpSequence());
+    }
+
+    private IEnumerator LevelUpSequence()
+    {
+        // 1. Wait a bit for the Level Up VFX/Text to pop up
+        yield return new WaitForSecondsRealtime(1.0f);
+
+        // 2. Pause the game
         Time.timeScale = 0f;
+
+        // 3. Show and Animate the UI
         ShowAugments();
     }
 
@@ -57,7 +71,38 @@ public class AugmentManager : MonoBehaviour
     {
         SetUpAugments();
         GenerateAugments();
+        
         canvas.gameObject.SetActive(true);
+        
+        // 1. Animate the Main Panel background (if any)
+        if (mainPanel != null)
+        {
+            mainPanel.localScale = Vector3.zero;
+            mainPanel.DOScale(Vector3.one, 1f).SetEase(Ease.OutSine).SetUpdate(true);
+        }
+
+        // 2. Animate each option card sequentially
+        for (int i = 0; i < options.Count; i++)
+        {
+            if (options[i] == null) continue;
+
+            Transform card = options[i].transform;
+            
+            // Record original position (assuming they are set correctly in Layout Group or manually)
+            // If using Layout Groups, you might need to disable them temporarily or use a wrapper.
+            // For now, let's assume we can move them locally.
+            
+            Vector3 targetPos = card.localPosition;
+            Vector3 startPos = targetPos + new Vector3(0, -300f, 0); // Start 300 units below
+
+            card.localPosition = startPos;
+            card.localScale = Vector3.zero;
+
+            float delay = i * 0.25f; // Staggered delay (0s, 0.15s, 0.3s)
+
+            card.DOLocalMove(targetPos, 0.5f).SetDelay(delay).SetEase(Ease.OutSine).SetUpdate(true);
+            card.DOScale(Vector3.one, 0.5f).SetDelay(delay).SetEase(Ease.OutSine).SetUpdate(true);
+        }
     }
 
     private void GenerateAugments()

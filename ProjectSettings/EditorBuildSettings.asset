@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/_Project/UI/Scenes/SCN_MainMenu.unity
+    guid: f1301758adfdfdd4e94e77767a1fad86
+  - enabled: 1
+    path: Assets/_Project/UI/Scenes/SCN_ChoosingMap.unity
+    guid: 59181a0fd201de249809ea35fdbd9ecc
+  - enabled: 1
+    path: Assets/_Project/UI/Scenes/SCN_Gameplay.unity
+    guid: d80c82fd26c46724b96cf437f82a8783
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

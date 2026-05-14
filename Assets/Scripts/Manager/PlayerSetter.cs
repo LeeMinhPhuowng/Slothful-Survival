@@ -3,6 +3,9 @@ using UnityEngine;
 using Unity.Cinemachine;
 using UnityEngine.Experimental.Animations;
 using Game.UI.Data;
+using Game.UI.Service;
+using Reflex.Attributes;
+
 public class PlayerSetter : MonoBehaviour
 {
     [SerializeField] List<CharacterInfoSO> playerInfos;
@@ -24,7 +27,10 @@ public class PlayerSetter : MonoBehaviour
     // private bool isArcher = false;
     // private bool isMage = false;
     private int playerIndex;
+    private GameObject _spawnedPlayer;
     public static PlayerSetter instance;
+
+    [Inject] private readonly IInventoryService _inventoryService;
 
     private void Awake()
     {
@@ -88,7 +94,16 @@ public class PlayerSetter : MonoBehaviour
             return;
         }
 
-        GameObject player = Instantiate(characterInfo.prefab, spawnPoint.position, Quaternion.identity, playerGameObject);
+        // Use the Home room center if MapView calculated it, otherwise fallback to spawnPoint
+        Vector3 playerSpawnPos = spawnPoint.position;
+        if (MapView.HomeRoomSpawnPosition.HasValue)
+        {
+            playerSpawnPos = MapView.HomeRoomSpawnPosition.Value;
+            Debug.Log($"[PlayerSetter] Spawning player at HomeRoom center: {playerSpawnPos}");
+        }
+
+        GameObject player = Instantiate(characterInfo.prefab, playerSpawnPos, Quaternion.identity, playerGameObject);
+        _spawnedPlayer = player;
         GameObject hpBar = Instantiate(healthBar, healthBarCanvas.transform);
         WeaponManager.Instance.AddWeapon(characterInfo.startWeapon);
         hpBar.GetComponent<Follow>().SetTarget(player);
@@ -96,6 +111,22 @@ public class PlayerSetter : MonoBehaviour
         //Set up stats
         PlayerInfo playerInfo = player.GetComponent<PlayerInfo>();
         playerInfo.InitializeFromCharacterInfoSO(characterInfo);
+
+        if (_inventoryService != null)
+        {
+            foreach (var kvp in _inventoryService.EquippedItems)
+            {
+                var item = kvp.Value;
+                if (item != null)
+                {
+                    playerInfo.MaxHealth += item.MaxHealth;
+                    playerInfo.CurrentHealth = playerInfo.MaxHealth; // Reset health to new max
+                    playerInfo.MoveSpeed += item.MoveSpeed;
+                    playerInfo.Armor += item.Armor;
+                    playerInfo.BonusAttack += item.Damage;
+                }
+            }
+        }
 
         //Set up in inspector
         drivenCamera.AnimatedTarget = player.GetComponent<Animator>();
@@ -113,6 +144,12 @@ public class PlayerSetter : MonoBehaviour
         if (spawnPoint != null)
         {
             spawnPoint.position = position;
+        }
+
+        // Also teleport the player if already spawned
+        if (_spawnedPlayer != null)
+        {
+            _spawnedPlayer.transform.position = position;
         }
     }
 }
