@@ -16,6 +16,7 @@ public class PlayerInfo : MonoBehaviour, IDamageable
     private float bonusAttack;
     private float armor;
     private int currentLevel;
+    private bool isDead;
 
     [SerializeField] float basePickupRange;
 
@@ -136,6 +137,7 @@ public class PlayerInfo : MonoBehaviour, IDamageable
         MaxHealth = characterInfo.maxHealth;
         CurrentHealth = MaxHealth;
         MoveSpeed = characterInfo.moveSpeed;
+        isDead = false;
         PickupRange = basePickupRange;
         CurrentLevel = 0;
         //healthBarValue = HealthBarCanvas.Instance.gameObject.GetComponentInChildren<HealthBarValue>();
@@ -143,6 +145,10 @@ public class PlayerInfo : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
+        if (isDead)
+        {
+            return;
+        }
         CurrentHealth -= (amount - armor / 10); //Hard code temporarily
         TriggerTakeDamageVFX();
         //healthBarValue.SetHealth(GetCurrentHealthPercentage());
@@ -153,14 +159,20 @@ public class PlayerInfo : MonoBehaviour, IDamageable
     }
 
     public void Die()
-    {
+    { 
         StartCoroutine(DieCoroutine());
     }
 
     private IEnumerator DieCoroutine()
     {
         yield return new WaitForEndOfFrame(); // Wait to prevent URP Light2D MissingReferenceException
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (!isDead)
+        {
+            isDead = true;
+            GameplayRunSignals.ReportPlayerDied();
+        }        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -178,6 +190,16 @@ public class PlayerInfo : MonoBehaviour, IDamageable
                 TakeDamage(enemy.info.damage);
                 lastDamageTime = Time.time; // Start I-Frame
             }
+        }
+    }
+
+    public void Revive(float healthPercent)
+    {
+        isDead = false;
+        CurrentHealth = MaxHealth * Mathf.Clamp01(healthPercent);
+        if (healthBarValue != null)
+        {
+            healthBarValue.SetHealth(GetCurrentHealthPercentage());
         }
     }
 

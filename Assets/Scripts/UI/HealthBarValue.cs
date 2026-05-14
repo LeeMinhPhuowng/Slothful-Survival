@@ -19,4 +19,9 @@ public class HealthBarValue : MonoBehaviour
             slider.value = healthPercent;
         }
     }
+
+    public void SetHealth(float percent)
+    {
+        slider.value = percent;
+    }
 }
