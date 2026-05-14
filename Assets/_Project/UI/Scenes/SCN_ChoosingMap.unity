@@ -2021,7 +2021,7 @@ MonoBehaviour:
   gameCatalogRegistry: {fileID: 974064956}
   equipmentCatalogRegistry: {fileID: 974064955}
   loadingPanelView: {fileID: 1179539598}
-  minimumLoadingDurationSeconds: 1
+  minimumLoadingDurationSeconds: 1.25
   initialGold: 10000
   initialDiamond: 0
   resetProgressOnStart: 0

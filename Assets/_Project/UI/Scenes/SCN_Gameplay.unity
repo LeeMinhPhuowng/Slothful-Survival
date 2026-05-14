@@ -2364,7 +2364,7 @@ MonoBehaviour:
   gameCatalogRegistry: {fileID: 1524635733}
   equipmentCatalogRegistry: {fileID: 1524635737}
   loadingPanelView: {fileID: 465409956}
-  minimumLoadingDurationSeconds: 1
+  minimumLoadingDurationSeconds: 1.25
   initialGold: 1000
   initialDiamond: 50
   resetProgressOnStart: 0

@@ -10,6 +10,8 @@ namespace Game.UI.Service
 {
     public sealed class SceneFlowService : ISceneFlowService
     {
+        private const float DisplayedProgressSpeed = 0.55f;
+
         private readonly ISceneNameRegistry _sceneNameRegistry;
         private readonly IGameCatalog _gameCatalog;
         private readonly ILoadingOverlayService _loadingOverlayService;
@@ -17,6 +19,7 @@ namespace Game.UI.Service
         private SceneId _currentScene;
         private bool _isLoading = false;
         private float _loadingProgress = 0f;
+        private float _displayedProgress = 0f;
 
         public SceneId CurrentScene => _currentScene;
         public bool IsLoading => _isLoading;
@@ -117,6 +120,7 @@ namespace Game.UI.Service
 
             _isLoading = true;
             SetProgress(0f);
+            SetDisplayedProgress(0f);
             _loadingOverlayService.Show();
             float loadingStartedAt = Time.realtimeSinceStartup;
 
@@ -135,11 +139,11 @@ namespace Game.UI.Service
                 {
                     cancellationToken.ThrowIfCancellationRequested();
                     SetProgress(operation.progress / 0.9f);
-                    await UniTask.Yield(PlayerLoopTiming.Update, cancellationToken);
+                    await TickDisplayedProgressAsync(cancellationToken);
                 }
 
                 SetProgress(1f);
-                await WaitForMinimumLoadingDurationAsync(loadingStartedAt, cancellationToken);
+                await WaitForDisplayedProgressReadyAsync(loadingStartedAt, cancellationToken);
 
                 operation.allowSceneActivation = true;
                 while (!operation.isDone)
@@ -171,24 +175,33 @@ namespace Game.UI.Service
         {
             float clampedProgress = Mathf.Clamp01(progress);
             _loadingProgress = clampedProgress;
+        }
+
+        private void SetDisplayedProgress(float progress)
+        {
+            float clampedProgress = Mathf.Clamp01(progress);
+            _displayedProgress = clampedProgress;
             _loadingOverlayService.SetProgress(clampedProgress);
         }
 
-        private UniTask WaitForMinimumLoadingDurationAsync(float loadingStartedAt, CancellationToken cancellationToken)
+        private async UniTask TickDisplayedProgressAsync(CancellationToken cancellationToken)
         {
-            float elapsed = Time.realtimeSinceStartup - loadingStartedAt;
-            float remaining = _minimumLoadingDurationSeconds - elapsed;
+            cancellationToken.ThrowIfCancellationRequested();
+            float nextProgress = Mathf.MoveTowards(
+                _displayedProgress,
+                _loadingProgress,
+                DisplayedProgressSpeed * Time.unscaledDeltaTime);
 
-            if (remaining <= 0f)
+            SetDisplayedProgress(nextProgress);
+            await UniTask.Yield(PlayerLoopTiming.Update, cancellationToken);
+        }
+
+        private async UniTask WaitForDisplayedProgressReadyAsync(float loadingStartedAt, CancellationToken cancellationToken)
+        {
+            while (_displayedProgress < 1f || Time.realtimeSinceStartup - loadingStartedAt < _minimumLoadingDurationSeconds)
             {
-                return UniTask.CompletedTask;
+                await TickDisplayedProgressAsync(cancellationToken);
             }
-
-            return UniTask.Delay(
-                TimeSpan.FromSeconds(remaining),
-                DelayType.UnscaledDeltaTime,
-                PlayerLoopTiming.Update,
-                cancellationToken);
         }
     }
 }

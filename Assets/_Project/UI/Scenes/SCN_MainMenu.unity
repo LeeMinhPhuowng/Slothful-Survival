@@ -5667,10 +5667,10 @@ MonoBehaviour:
   gameCatalogRegistry: {fileID: 1524635733}
   equipmentCatalogRegistry: {fileID: 1524635737}
   loadingPanelView: {fileID: 1988646575}
-  minimumLoadingDurationSeconds: 1
-  initialGold: 1000
+  minimumLoadingDurationSeconds: 1.25
+  initialGold: 5000
   initialDiamond: 50
-  resetProgressOnStart: 0
+  resetProgressOnStart: 1
   saveOnEveryChange: 1
 --- !u!114 &1577272326
 MonoBehaviour:
@@ -8210,6 +8210,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LoadingCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232919877030578864, guid: 35032b4bd07c71b4bb2dce652895a61c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232919877030578864, guid: 35032b4bd07c71b4bb2dce652895a61c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6496152750576390418, guid: 35032b4bd07c71b4bb2dce652895a61c,
         type: 3}
