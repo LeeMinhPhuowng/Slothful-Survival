@@ -5,7 +5,6 @@ public class Guardian : AWeaponBehaviour
 {
     [SerializeField] WeaponInfoSO info;
     [SerializeField] GameObject blades;
-    [SerializeField] LayerMask enemyLayer;
     [SerializeField] float existTime;
     private GameObject bladesObject;
     private bool _isActive = false;

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6c5e27ed1e19746a021edd277ba81d, type: 3}
   m_Name: Knight
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 10
   moveSpeed: 4
   startWeapon: {fileID: 3442482019999103755, guid: d28e8c4071eabd64da04123295ae3931,
     type: 3}

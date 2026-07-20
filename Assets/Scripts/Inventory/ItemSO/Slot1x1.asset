@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d238e977337d34a80ed96802e78967, type: 3}
+  m_Name: Slot1x1
+  m_EditorClassIdentifier: 
+  itemType: 0
+  nameString: Bag1x1
+  visualPrefab: {fileID: 4979519574198578119, guid: a083aa10a81c30146ad3203e6d6b04dc,
+    type: 3}
+  width: 1
+  height: 1

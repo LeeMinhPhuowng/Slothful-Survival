@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/_Project/UI/Scenes/SCN_ChoosingMap.unity
     guid: 59181a0fd201de249809ea35fdbd9ecc
   - enabled: 1
+    path: Assets/_Project/UI/Scenes/SCN_Gameplay_Inventory.unity
+    guid: e23c231b4aea81548adcab173a58461b
+  - enabled: 1
     path: Assets/_Project/UI/Scenes/SCN_Gameplay.unity
     guid: d80c82fd26c46724b96cf437f82a8783
   m_configObjects: {}

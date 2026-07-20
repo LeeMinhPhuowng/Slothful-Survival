@@ -90,6 +90,47 @@ namespace Game.UI.Service
             return LoadSceneAsync(SceneId.Gameplay, cancellationToken);
         }
 
+        public UniTask<SceneLoadResult> LoadGameplayInventoryAsync(GameplayLoadRequest request, CancellationToken cancellationToken = default)
+        {
+            if (string.IsNullOrWhiteSpace(request.MapId))
+            {
+                return UniTask.FromResult(SceneLoadResult.Failed(
+                    SceneId.Gameplay_Inventory,
+                    SceneLoadFailureReason.MissingGameplayRequest,
+                    "Gameplay load request must include a map id."));
+            }
+
+            if (string.IsNullOrWhiteSpace(request.CharacterId))
+            {
+                return UniTask.FromResult(SceneLoadResult.Failed(
+                    SceneId.Gameplay_Inventory,
+                    SceneLoadFailureReason.MissingGameplayRequest,
+                    "Gameplay load request must include a character id."));
+            }
+
+            LevelSO mapConfig = _gameCatalog.GetMapConfig(request.MapId);
+            if (mapConfig == null)
+            {
+                return UniTask.FromResult(SceneLoadResult.Failed(
+                    SceneId.Gameplay_Inventory,
+                    SceneLoadFailureReason.SceneNotFound,
+                    $"Map id is not registered: {request.MapId}"));
+            }
+
+            CharacterInfoSO characterConfig = _gameCatalog.GetCharacterConfig(request.CharacterId);
+            if (characterConfig == null)
+            {
+                return UniTask.FromResult(SceneLoadResult.Failed(
+                    SceneId.Gameplay_Inventory,
+                    SceneLoadFailureReason.SceneNotFound,
+                    $"Character id is not registered: {request.CharacterId}"));
+            }
+
+            LastGameplayLoadRequest = request;
+            GameplayLaunchContext.Set(request, mapConfig, characterConfig);
+            return LoadSceneAsync(SceneId.Gameplay_Inventory, cancellationToken);
+        }
+
         public UniTask<SceneLoadResult> ReloadGameplayAsync(CancellationToken cancellationToken = default)
         {
             GameplayLoadRequest? previousRequest = LastGameplayLoadRequest ?? GameplayLaunchContext.CurrentRequest;

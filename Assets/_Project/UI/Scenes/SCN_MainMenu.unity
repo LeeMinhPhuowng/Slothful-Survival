@@ -5427,6 +5427,8 @@ MonoBehaviour:
     SceneName: SCN_MainMenu
   - SceneId: 1
     SceneName: SCN_ChoosingMap
+  - SceneId: 3
+    SceneName: SCN_Gameplay_Inventory
   - SceneId: 2
     SceneName: SCN_Gameplay
 --- !u!4 &1524635736

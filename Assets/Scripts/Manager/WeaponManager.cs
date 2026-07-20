@@ -26,12 +26,12 @@ public class WeaponManager : MonoBehaviour
         return activeWeapons.Count < maxSlots;
     }
 
-    public void AddWeapon(GameObject weaponPrefab)
+    public Weapon AddWeapon(GameObject weaponPrefab)
     {
         if (!HasFreeSlot())
         {
             Debug.LogWarning("[WeaponManager] No free slots available!");
-            return;
+            return null;
         }
 
         // Instantiate the weapon as a child of the player (WeaponManager is usually on Player)
@@ -42,6 +42,19 @@ public class WeaponManager : MonoBehaviour
         {
             activeWeapons.Add(weapon);
             Debug.Log($"[WeaponManager] Added weapon: {weapon.Info.ID}");
+            return weapon;
+        }
+        return null;
+    }
+
+    public void RemoveWeapon(Weapon weapon)
+    {
+        if (weapon == null) return;
+        if (activeWeapons.Contains(weapon))
+        {
+            activeWeapons.Remove(weapon);
+            Destroy(weapon.gameObject);
+            Debug.Log($"[WeaponManager] Removed weapon: {weapon.Info.ID}");
         }
     }
 

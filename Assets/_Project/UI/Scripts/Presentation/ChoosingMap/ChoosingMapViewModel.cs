@@ -92,10 +92,10 @@ namespace Game.UI.Presentation.ChoosingMap
                 }
 
                 GameplayLoadRequest request = new(selectedMap.MapId, selectedCharacter.CharacterId, false);
-                SceneLoadResult result = await _sceneFlowService.LoadGameplayAsync(request);
+                SceneLoadResult result = await _sceneFlowService.LoadGameplayInventoryAsync(request);
                 if (!result.Success)
                 {
-                    Debug.LogError($"[ChoosingMapViewModel] Failed to load Gameplay: {result.FailureReason} - {result.Message}");
+                    Debug.LogError($"[ChoosingMapViewModel] Failed to load Gameplay_Inventory: {result.FailureReason} - {result.Message}");
                 }
             }
             finally

@@ -61,13 +61,27 @@ public class Augment : MonoBehaviour
 
     private void AddAugment(AddInfoSO info)
     {
-        WeaponManager.Instance.AddWeapon(info.NewWeapon);
+        if (Features.Inventory.GameplayInventoryBridge.Instance != null)
+        {
+            Features.Inventory.GameplayInventoryBridge.Instance.AddWeaponToStash(info.NewWeapon);
+        }
+        else
+        {
+            WeaponManager.Instance.AddWeapon(info.NewWeapon);
+        }
         AugmentManager.Instance.addInfos.Remove(info);
     }
 
     private void UpgradeAugment(UpgradeInfoSO info)
     {
-        WeaponManager.Instance.ReplaceWeapon(info.SourceWeaponID, info.UpgradedWeapon);
+        if (Features.Inventory.GameplayInventoryBridge.Instance != null)
+        {
+            Features.Inventory.GameplayInventoryBridge.Instance.AddWeaponToStash(info.UpgradedWeapon);
+        }
+        else
+        {
+            WeaponManager.Instance.ReplaceWeapon(info.SourceWeaponID, info.UpgradedWeapon);
+        }
     }
 
     public void OnClick()

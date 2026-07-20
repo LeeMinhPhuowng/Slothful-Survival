@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6064c9c7188a446a37a88fa6b6282a, type: 3}
+  m_Name: Storage
+  m_EditorClassIdentifier: Assembly-CSharp::Features.Inventory.InventoryConfigSO
+  gridWidth: 5
+  gridHeight: 5
+  cellSize: 50
+  allItems:
+  - {fileID: 11400000, guid: 4653aaf13eab5e64793b8858b4aa4dea, type: 2}
+  - {fileID: 11400000, guid: 1524771fb0381dc448ce26958a4b6c54, type: 2}
+  - {fileID: 11400000, guid: 191c30507294e1241a5d38ddbb857b76, type: 2}
+  - {fileID: 11400000, guid: 689b28781c9da8a4bbfb1d9038637313, type: 2}
+  - {fileID: 11400000, guid: 3b2b2e2e336ebcf49ac9bf8c361a5451, type: 2}
+  gridVisualPrefab: {fileID: 2148587555689196983, guid: eae2a0801d2f53048931bd89302a6507,
+    type: 3}

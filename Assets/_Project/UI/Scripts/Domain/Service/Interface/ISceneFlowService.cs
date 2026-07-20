@@ -16,6 +16,7 @@ namespace Game.UI.Service
         UniTask<SceneLoadResult> LoadMainMenuAsync(CancellationToken cancellationToken = default);
         UniTask<SceneLoadResult> LoadChoosingMapAsync(CancellationToken cancellationToken = default);
         UniTask<SceneLoadResult> LoadGameplayAsync(GameplayLoadRequest request, CancellationToken cancellationToken = default);
+        UniTask<SceneLoadResult> LoadGameplayInventoryAsync(GameplayLoadRequest request, CancellationToken cancellationToken = default);
         UniTask<SceneLoadResult> ReloadGameplayAsync(CancellationToken cancellationToken = default);
     }
 }

@@ -1451,6 +1451,8 @@ MonoBehaviour:
     SceneName: SCN_ChoosingMap
   - SceneId: 2
     SceneName: SCN_Gameplay
+  - SceneId: 3
+    SceneName: SCN_Gameplay_Inventory
 --- !u!4 &974064958
 Transform:
   m_ObjectHideFlags: 0

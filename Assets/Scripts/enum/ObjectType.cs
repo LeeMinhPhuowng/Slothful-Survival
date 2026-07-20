@@ -17,5 +17,8 @@ public enum ObjectType
     SlashVFX,
     BloodSlashVFX,
     Boomerang,
-    Shuriken
+    Shuriken,
+    Fireball,
+    Drop,
+    Leaf
 }

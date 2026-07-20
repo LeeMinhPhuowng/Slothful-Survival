@@ -105,7 +105,16 @@ public class PlayerSetter : MonoBehaviour
         GameObject player = Instantiate(characterInfo.prefab, playerSpawnPos, Quaternion.identity, playerGameObject);
         _spawnedPlayer = player;
         GameObject hpBar = Instantiate(healthBar, healthBarCanvas.transform);
-        WeaponManager.Instance.AddWeapon(characterInfo.startWeapon);
+        
+        if (Features.Inventory.GameplayInventoryBridge.Instance != null)
+        {
+            Features.Inventory.GameplayInventoryBridge.Instance.AddWeaponToActiveBag(characterInfo.startWeapon);
+        }
+        else
+        {
+            WeaponManager.Instance.AddWeapon(characterInfo.startWeapon);
+        }
+
         hpBar.GetComponent<Follow>().SetTarget(player);
 
         //Set up stats

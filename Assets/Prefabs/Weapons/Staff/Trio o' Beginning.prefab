@@ -488,7 +488,7 @@ PrefabInstance:
         type: 3}
       propertyPath: behaviour
       value: 
-      objectReference: {fileID: 588859796359399002}
+      objectReference: {fileID: 4373304476954740542}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -500,7 +500,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2762722152618124702, guid: 61e65497bd1354346a7d79c64c57e574,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 588859796359399002}
+      addedObject: {fileID: 4373304476954740542}
   m_SourcePrefab: {fileID: 100100000, guid: 61e65497bd1354346a7d79c64c57e574, type: 3}
 --- !u!1 &6843897308620803910 stripped
 GameObject:
@@ -508,7 +508,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8695678466831395544}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &588859796359399002
+--- !u!114 &4373304476954740542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -517,15 +517,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6843897308620803910}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e76cfcef88a94e84a8a8911de344ef62, type: 3}
+  m_Script: {fileID: 11500000, guid: e043daeebd247f74db6553e7e6cdf4b6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrioOfBeginning
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
   info: {fileID: 11400000, guid: 6f6bdfebf27a18d4593c5ab35141a75d, type: 2}
-  projectilePrefab: {fileID: 8707204994675441862, guid: 37c23eb2e1d63a9408ec60bf8429e062,
-    type: 3}
+  projectileTypes: 110000001200000010000000
+  projectilesPerWave: 10
+  totalWaves: 3
+  timeBetweenWaves: 0.2
+  angleOffsetPerWave: 20
+  spriteAngleOffset: 180
 --- !u!4 &9115308553657055738 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 445106134709261090, guid: 61e65497bd1354346a7d79c64c57e574,

@@ -182,6 +182,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   lifetime: 0
-  type: 5
+  type: 17
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
   moveSpeed: 10
   rb: {fileID: 370722470226335658}

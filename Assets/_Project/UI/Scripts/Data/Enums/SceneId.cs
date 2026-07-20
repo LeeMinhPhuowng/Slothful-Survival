@@ -4,6 +4,7 @@ namespace Game.UI.Data
     {
         MainMenu,
         ChoosingMap,
-        Gameplay
+        Gameplay,
+        Gameplay_Inventory
     }
 }
